@@ -1,12 +1,8 @@
 from tkinter import *
-import sys
-import time
-
-
 import random
 
 
-gold = 1500  # used in store to buy items
+rupees = 1500  # used in store to buy items
 hp = 100  # user's hp
 opp_hp = 100  # monster's hp
 extra_hp = 0  # extra opponent hp for boss round
@@ -20,8 +16,8 @@ Mythril_Armour = False  # decreases opp_att by 20
 Orichalium_Armour = False  # decreases opp_att by 30
 Uru_Armour= False # decreases opp_att by 50
 Adamantia_Armour= False # decreases opp_att by 60
-potion = 1  # increases hp by 30. Cost=300 gold
-ultra_potion = 1  # increases hp by 50. Cost=600 gold
+potion = 1  # increases hp by 30. Cost=300 rupees
+ultra_potion = 1  # increases hp by 50. Cost=600 rupees
 which_potion = 0  # variable that lets you select the potion that you want to take.
 
 def get_room():
@@ -41,18 +37,18 @@ def get_room():
 
 # treasure box room
 def treasure_box():
-    global gold
+    global rupees
     global frame_tb
     frame_tb = Frame(root)
     frame_tb.pack()
-    L_TB = Label(frame_tb,text="You found a treasure box\n")
+    L_TB = Label(frame_tb,text="\n\n\n\n\n It's your lucky day!\n On your way to the Pixel Food Court, you found some cash lying on the ground\n with no one else around to collect it. \n It's all yours for the taking! ( ͡° ͜ʖ ͡°) \n")
     L_TB.pack()
 
-    prize = random.randint(2, 7)
-    gold = gold + (prize * 100)
+    prize = random.randint(1, 10)
+    rupees = rupees + (prize * 10)
 
-    L_TB_gold = Label(frame_tb, text=f"You now have {gold} gold\n")
-    L_TB_gold.pack()
+    L_TB_rupees = Label(frame_tb, text=f"Score! You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.")
+    L_TB_rupees.pack()
 
     B_TB = Button(frame_tb, text="Next", command=lambda: treasure_box_exit())
     B_TB .pack()
@@ -95,9 +91,9 @@ def shop_potion_yes():
     frame_shop_potion.destroy()
     frame_shop_potion_yes = Frame(root)
     frame_shop_potion_yes.pack()
-    L_Shop_Potion_Yes = Label(frame_shop_potion_yes, text="Small potion that costs 250 gold will increase your HP by 30\n"
+    L_Shop_Potion_Yes = Label(frame_shop_potion_yes, text="Small potion that costs 250 rupees will increase your HP by 30\n"
                                                           "And..\n"
-                                                          "Ultra potion that costs 600 gold will increase your HP by 50")
+                                                          "Ultra potion that costs 600 rupees will increase your HP by 50")
     L_Shop_Potion_Yes.pack()
     B_Shop_Potion_Yes = Button(frame_shop_potion_yes, text="Next", command=lambda: shop_potion_yestono())
     B_Shop_Potion_Yes.pack()
@@ -112,8 +108,8 @@ def shop_potions_small():
     frame_shop_potion_small = Frame(root)
     frame_shop_potion_small.pack()
     L_shop_potion_small = Label(frame_shop_potion_small, text="How many Small potions would you like to buy?\n"
-                                                              "Cost=250 gold\n"
-                                                              f"You have {gold} gold")
+                                                              "Cost=250 rupees\n"
+                                                              f"You have {rupees} rupees")
     L_shop_potion_small.pack()
 
     B_shop_potion_small = Button(frame_shop_potion_small, text="Buy", command=lambda: shop_potion_small_buy())
@@ -126,17 +122,17 @@ def shop_potions_small_to_main():
     shop()
 
 def shop_potion_small_buy():
-    global gold
+    global rupees
     global potion
-    if gold - 250 < 0:
-        L_shop_potion_small = Label(frame_shop_potion_small, text="You don't have enough gold.\n"
+    if rupees - 250 < 0:
+        L_shop_potion_small = Label(frame_shop_potion_small, text="You don't have enough rupees.\n"
                                                                   "Let's shop for something else..\n")
         L_shop_potion_small.pack()
-        # If user has enough gold
+        # If user has enough rupees
     else:
         potion = potion + 1
-        gold = gold - 250
-        L_shop_potion_small = Label(frame_shop_potion_small, text=(f"You now have {gold} gold with you\n"
+        rupees = rupees - 250
+        L_shop_potion_small = Label(frame_shop_potion_small, text=(f"You now have {rupees} rupees with you\n"
                                                                    f"You now have {potion} Small Potions with you\n"
                                                                    "Let's continue shopping.."))
         L_shop_potion_small.pack()
@@ -147,8 +143,8 @@ def shop_potions_ultra():
     frame_shop_potion_ultra = Frame(root)
     frame_shop_potion_ultra.pack()
     L_shop_potion_ultra = Label(frame_shop_potion_ultra, text="How many Ultra potions would you like to buy?\n"
-                                                              "Cost=600 gold\n"
-                                                              f"You have {gold} gold")
+                                                              "Cost=600 rupees\n"
+                                                              f"You have {rupees} rupees")
     L_shop_potion_ultra.pack()
     B_shop_potion_ultra = Button(frame_shop_potion_ultra, text="Buy", command=lambda: shop_potion_ultra_buy())
     B_shop_potion_ultra.pack()
@@ -160,25 +156,25 @@ def shop_potions_ultra_to_main():
     shop()
 
 def shop_potion_ultra_buy():
-    global gold
+    global rupees
     global ultra_potion
     # global frame_shop_potion_ultra_buy
     # frame_shop_potion_ultra_buy.destroy()
     # frame_shop_potion_ultra_buy = Frame(root)
     # frame_shop_potion_ultra_buy.pack()
-    if gold - 600 < 0:
-        L_shop_potion_ultra = Label(frame_shop_potion_ultra, text="You don't have enough gold.\n"
-                                                                  f"You have {gold} gold with you\n"
+    if rupees - 600 < 0:
+        L_shop_potion_ultra = Label(frame_shop_potion_ultra, text="You don't have enough rupees.\n"
+                                                                  f"You have {rupees} rupees with you\n"
                                                                    f"You have {ultra_potion} Ultra Potions with you\n"
                                                                    "Let's shop for something else..\n")
         L_shop_potion_ultra.pack()
         # B_shop_potion_ultra_main = Button(frame_shop_potion_ultra, text="Back")
         # B_shop_potion_ultra_main.pack()
-        # If user has enough gold
+        # If user has enough rupees
     else:
         ultra_potion = ultra_potion + 1
-        gold = gold - 600
-        L_shop_potion_ultra = Label(frame_shop_potion_ultra, text=(f"You now have {gold} gold with you\n"
+        rupees = rupees - 600
+        L_shop_potion_ultra = Label(frame_shop_potion_ultra, text=(f"You now have {rupees} rupees with you\n"
                                                                    f"You now have {ultra_potion} Ultra Potions with you\n"
                                                                    "Let's continue shopping.."))
         L_shop_potion_ultra.pack()
@@ -224,11 +220,11 @@ def shop_sword_yes():
     frame_shop_sword.destroy()
     frame_shop_sword_yes = Frame(root)
     frame_shop_sword_yes.pack()
-    L_Shop_Sword_Y_info = Label(frame_shop_sword_yes, text="Iron_Sword costs 200 gold and increases your attack by 20\n"
-                                                            "Mythril_Sword costs 300 gold and increases your attack by 30\n"
-                                                            "Orichalium_Sword costs 400 gold and increases your attack by 40\n"
-                                                            "Uru_Sword costs 500 gold and increases your attack by 50\n"
-                                                            "Adamantia_Sword costs 600 gold and increases your attack by 60\n")
+    L_Shop_Sword_Y_info = Label(frame_shop_sword_yes, text="Iron_Sword costs 200 rupees and increases your attack by 20\n"
+                                                            "Mythril_Sword costs 300 rupees and increases your attack by 30\n"
+                                                            "Orichalium_Sword costs 400 rupees and increases your attack by 40\n"
+                                                            "Uru_Sword costs 500 rupees and increases your attack by 50\n"
+                                                            "Adamantia_Sword costs 600 rupees and increases your attack by 60\n")
     L_Shop_Sword_Y_info.pack()
 
     B_Shop_Sword_Yes = Button(frame_shop_sword_yes, text="Next", command=lambda: shop_sword_yestono())
@@ -264,12 +260,12 @@ def shop_sword_sword1():
     global Orichalium_Sword
     global Uru_Sword
     global Adamantia_Sword
-    global gold
+    global rupees
     if Iron_Sword == False:
-        if gold > 200:
-            gold = gold - 200
+        if rupees > 200:
+            rupees = rupees - 200
             L_shop_swords_sword1 = Label(frame_shop_swords_no, text="You now have Iron_Sword\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_swords_sword1.pack()
             Iron_Sword = True
             Mythril_Sword = False
@@ -278,8 +274,8 @@ def shop_sword_sword1():
             Adamantia_Sword = False
 
         else:
-            L_shop_swords_sword1 = Label(frame_shop_swords_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_swords_sword1 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_swords_sword1.pack()
     else:
         L_shop_swords_sword1 = Label(frame_shop_swords_no, text="You already have Iron_Sword")
@@ -291,20 +287,20 @@ def shop_sword_sword2():
     global Orichalium_Sword
     global Uru_Sword
     global Adamantia_Sword
-    global gold
+    global rupees
     if Mythril_Sword == False:
-        if gold > 300:
-            gold = gold - 300
+        if rupees > 300:
+            rupees = rupees - 300
             L_shop_swords_sword2 = Label(frame_shop_swords_no, text="You now have Mythril_Sword\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_swords_sword2.pack()
             Iron_Sword = False
             Mythril_Sword = True
             Orichalium_Sword = False
 
         else:
-            L_shop_swords_sword2 = Label(frame_shop_swords_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_swords_sword2 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_swords_sword2.pack()
     else:
         L_shop_swords_sword2 = Label(frame_shop_swords_no, text="You already have Mythril_Sword")
@@ -316,20 +312,20 @@ def shop_sword_sword3():
     global Orichalium_Sword
     global Uru_Sword
     global Adamantia_Sword
-    global gold
+    global rupees
     if Orichalium_Sword == False:
-        if gold > 400:
-            gold = gold - 400
+        if rupees > 400:
+            rupees = rupees - 400
             L_shop_swords_sword3 = Label(frame_shop_swords_no, text="You now have Orichalium_Sword\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_swords_sword3.pack()
             Iron_Sword = False
             Mythril_Sword = False
             Orichalium_Sword = True
 
         else:
-            L_shop_swords_sword3 = Label(frame_shop_swords_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_swords_sword3 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_swords_sword3.pack()
     else:
         L_shop_swords_sword3 = Label(frame_shop_swords_no, text="You already have Orichalium_Sword")
@@ -342,12 +338,12 @@ def shop_sword_sword4():
     global Orichalium_Sword
     global Uru_Sword
     global Adamantia_Sword
-    global gold
+    global rupees
     if Uru_Sword == False:
-        if gold > 500:
-            gold = gold - 500
+        if rupees > 500:
+            rupees = rupees - 500
             L_shop_swords_sword4 = Label(frame_shop_swords_no, text="You now have Uru_Sword\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_swords_sword4.pack()
             Iron_Sword = False
             Mythril_Sword = False
@@ -356,8 +352,8 @@ def shop_sword_sword4():
             Adamantia_Sword = False
 
         else:
-            L_shop_swords_sword4 = Label(frame_shop_swords_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_swords_sword4 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_swords_sword4.pack()
     else:
         L_shop_swords_sword4 = Label(frame_shop_swords_no, text="You already have Uru_Sword")
@@ -370,12 +366,12 @@ def shop_sword_sword5():
     global Orichalium_Sword
     global Uru_Sword
     global Adamantia_Sword
-    global gold
+    global rupees
     if Adamantia_Sword == False:
-        if gold > 600:
-            gold = gold - 600
+        if rupees > 600:
+            rupees = rupees - 600
             L_shop_swords_sword5 = Label(frame_shop_swords_no, text="You now have Adamantia_Sword\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_swords_sword5.pack()
             Iron_Sword = False
             Mythril_Sword = False
@@ -384,8 +380,8 @@ def shop_sword_sword5():
             Adamantia_Sword = True
 
         else:
-            L_shop_swords_sword5 = Label(frame_shop_swords_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_swords_sword5 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_swords_sword5.pack()
     else:
         L_shop_swords_sword5 = Label(frame_shop_swords_no, text="You already have Adamantia_Sword")
@@ -435,11 +431,11 @@ def shop_armor_yes():
     frame_shop_armor.destroy()
     frame_shop_armor_yes = Frame(root)
     frame_shop_armor_yes.pack()
-    L_Shop_armor_Y_info = Label(frame_shop_armor_yes, text="Iron_Armour costs 200 gold and increases your attack by 20\n"
-                                                            "Mythril_Armour costs 300 gold and increases your attack by 30\n"
-                                                            "Orichalium_Armour costs 400 gold and increases your attack by 40\n"
-                                                            "Uru_Armour costs 500 gold and increases your attack by 50\n"
-                                                            "Adamantia_Armour costs 600 gold and increases your attack by 60\n")
+    L_Shop_armor_Y_info = Label(frame_shop_armor_yes, text="Iron_Armour costs 200 rupees and increases your attack by 20\n"
+                                                            "Mythril_Armour costs 300 rupees and increases your attack by 30\n"
+                                                            "Orichalium_Armour costs 400 rupees and increases your attack by 40\n"
+                                                            "Uru_Armour costs 500 rupees and increases your attack by 50\n"
+                                                            "Adamantia_Armour costs 600 rupees and increases your attack by 60\n")
     L_Shop_armor_Y_info.pack()
 
     B_Shop_armor_Yes = Button(frame_shop_armor_yes, text="Next", command=lambda: shop_armor_yestono())
@@ -475,12 +471,12 @@ def shop_armor_armor1():
     global Orichalium_Armour
     global Uru_Armour
     global Adamantia_Armour
-    global gold
+    global rupees
     if Iron_Armour == False:
-        if gold > 200:
-            gold = gold - 200
+        if rupees > 200:
+            rupees = rupees - 200
             L_shop_armors_armor1 = Label(frame_shop_armors_no, text="You now have Iron_Armour\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_armors_armor1.pack()
             Iron_Armour = True
             Mythril_Armour = False
@@ -489,8 +485,8 @@ def shop_armor_armor1():
             Adamantia_Armour = False
 
         else:
-            L_shop_armors_armor1 = Label(frame_shop_armors_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_armors_armor1 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_armors_armor1.pack()
     else:
         L_shop_armors_armor1 = Label(frame_shop_armors_no, text="You already have Iron_Armour")
@@ -502,12 +498,12 @@ def shop_armor_armor2():
     global Orichalium_Armour
     global Uru_Armour
     global Adamantia_Armour
-    global gold
+    global rupees
     if Mythril_Armour == False:
-        if gold > 300:
-            gold = gold - 300
+        if rupees > 300:
+            rupees = rupees - 300
             L_shop_armors_armor2 = Label(frame_shop_armors_no, text="You now have Mythril_Armour\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_armors_armor2.pack()
             Iron_Armour = False
             Mythril_Armour = True
@@ -516,8 +512,8 @@ def shop_armor_armor2():
             Adamantia_Armour = False
 
         else:
-            L_shop_armors_armor2 = Label(frame_shop_armors_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_armors_armor2 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_armors_armor2.pack()
     else:
         L_shop_armors_armor2 = Label(frame_shop_armors_no, text="You already have Mythril_Armour")
@@ -529,12 +525,12 @@ def shop_armor_armor3():
     global Orichalium_Armour
     global Uru_Armour
     global Adamantia_Armour
-    global gold
+    global rupees
     if Orichalium_Armour == False:
-        if gold > 400:
-            gold = gold - 400
+        if rupees > 400:
+            rupees = rupees - 400
             L_shop_armors_armor3 = Label(frame_shop_armors_no, text="You now have Orichalium_Armour\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_armors_armor3.pack()
             Iron_Armour = False
             Mythril_Armour = False
@@ -543,8 +539,8 @@ def shop_armor_armor3():
             Adamantia_Armour = False
 
         else:
-            L_shop_armors_armor3 = Label(frame_shop_armors_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_armors_armor3 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_armors_armor3.pack()
     else:
         L_shop_armors_armor3 = Label(frame_shop_armors_no, text="You already have Orichalium_Armour")
@@ -556,12 +552,12 @@ def shop_armor_armor4():
     global Orichalium_Armour
     global Uru_Armour
     global Adamantia_Armour
-    global gold
+    global rupees
     if Uru_Armour == False:
-        if gold > 500:
-            gold = gold - 500
+        if rupees > 500:
+            rupees = rupees - 500
             L_shop_armors_armor4 = Label(frame_shop_armors_no, text="You now have Uru_Armour\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_armors_armor4.pack()
             Iron_Armour = False
             Mythril_Armour = False
@@ -570,8 +566,8 @@ def shop_armor_armor4():
             Adamantia_Armour = False
 
         else:
-            L_shop_armors_armor4 = Label(frame_shop_armors_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_armors_armor4 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_armors_armor4.pack()
     else:
         L_shop_armors_armor4 = Label(frame_shop_armors_no, text="You already have Uru_Armour")
@@ -583,12 +579,12 @@ def shop_armor_armor5():
     global Orichalium_Armour
     global Uru_Armour
     global Adamantia_Armour
-    global gold
+    global rupees
     if Adamantia_Armour == False:
-        if gold > 600:
-            gold = gold - 600
+        if rupees > 600:
+            rupees = rupees - 600
             L_shop_armors_armor5 = Label(frame_shop_armors_no, text="You now have Adamantia_Armour\n"
-                                                                    f"You now have {gold} gold")
+                                                                    f"You now have {rupees} rupees")
             L_shop_armors_armor5.pack()
             Iron_Armour = False
             Mythril_Armour = False
@@ -597,8 +593,8 @@ def shop_armor_armor5():
             Adamantia_Armour = True
 
         else:
-            L_shop_armors_armor5 = Label(frame_shop_armors_no, text="You don't have enough gold.\n"
-                                                                    f"You have {gold} gold")
+            L_shop_armors_armor5 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+                                                                    f"You have {rupees} rupees")
             L_shop_armors_armor5.pack()
     else:
         L_shop_armors_armor5 = Label(frame_shop_armors_no, text="You already have Adamantia_Armour")
@@ -617,7 +613,7 @@ def shop_exit():
     get_room()
 
 def shop():
-    global gold
+    global rupees
     global Iron_Sword
     global Mythril_Sword
     global Orichalium_Sword
@@ -930,7 +926,20 @@ def get_monster():
         fight_monster()
         # opp_att = random.randint(50, 60)
 
+def gate():
+    global frame_gate
+    frame1.destroy()
+    frame_gate = Frame(root)
+    frame_gate.pack()
+    L_gate = Label(frame_gate,text="\n\n\n\n\n As you make your way to the entrance of the main block, \n you hear cries that have a tone of urgency and persuasion. \n 'ID CARD HAKOLI! ID CARD HAKOLI! '\n They seem to be coming from an older gentleman. \n Standing beside the apparent quinquagenarian are \ntwo even larger men guarding the entrance like sentinels. \n Gargantuan in physique, they execute their job with extreme proficiency,\n grabbing a hold of anyone who tries to enter the block without their ID card.\n Phew! Thank God you got yours! \n ")
+    L_gate.pack()
 
+    B_gate = Button(frame_gate, text="Next", command=lambda: gate_exit())
+    B_gate.pack()
+
+def gate_exit():
+    frame_gate.destroy()
+    get_room()
 
 root = Tk()
 root.title("Navigating PES")
@@ -938,10 +947,11 @@ frame1 = Frame(root,padx=1, pady=1)
 frame1.pack(padx=10, pady=10)
 
 root.geometry("500x500")
-label = Label(frame1, text="\n\n\n\n\n\nWelcome to PESUECC!\n Students have walked through its hallowed gates in pursuit of\n knowledge since 2005.This knowledge comes at a price!\n You must face the 5 ISAs.\n Each increasing in difficulty, the ISAs will be a test of your mental endurance.\n After conquering the ISAs, your journey does not end. Finally, there is the ESA.\n A 3 hour written test, combining everything you've learnt over the semester,\n vanquishing it is a result of all your learnings from your professors.\n The road that lies ahead of you is long and hard.\n Let's start by equipping ourselves for this arduous journey.\n The famed Food Truck should have everything required to fuel your hunger!")
+label = Label(frame1, text="\n\n\n\n\n\nWelcome to PESUECC!\n Students have walked through its hallowed gates in pursuit of\n knowledge since 2005.This knowledge comes at a price!\n You must face the 5 ISAs.\n Each increasing in difficulty, the ISAs will be a test of your mental endurance.\n After conquering the ISAs, your journey does not end. Finally, there is the ESA.\n A 3 hour written test, combining everything you've learnt over the semester,\n vanquishing it is a result of all your learnings from your professors.\n The road that lies ahead of you is long and hard.\n To begin, let's make our way to the main block.\n ")
 label.pack()
 
-welcome_button = Button(frame1, text='Go to the Food Truck-->', command=lambda: get_room())
+welcome_button = Button(frame1, text='Go to the main block-->', command=lambda: gate())
 welcome_button.pack()
 
 root.mainloop()
+
