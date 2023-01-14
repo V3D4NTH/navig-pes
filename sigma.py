@@ -2,7 +2,7 @@ from tkinter import *
 import random
 
 
-rupees = 1500  # used in store to buy items
+rupees = 600  # used in store to buy items
 hp = 100  # user's hp
 opp_hp = 100  # monster's hp
 extra_hp = 0  # extra opponent hp for boss round
@@ -41,13 +41,15 @@ def treasure_box():
     global frame_tb
     frame_tb = Frame(root)
     frame_tb.pack()
+    prize = random.randint(1, 10)
+    rupees = rupees + (prize * 10)
     L_TB = Label(frame_tb,text="\n\n\n\n\n It's your lucky day!\n On your way to the Pixel Food Court, you found some cash lying on the ground\n with no one else around to collect it. \n It's all yours for the taking! ( ͡° ͜ʖ ͡°) \n")
     L_TB.pack()
 
     prize = random.randint(1, 10)
     rupees = rupees + (prize * 10)
 
-    L_TB_rupees = Label(frame_tb, text=f"Score! You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.")
+    L_TB_rupees = Label(frame_tb, text=f"Score! You just made a cool {prize*10} bucks. \n You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.")
     L_TB_rupees.pack()
 
     B_TB = Button(frame_tb, text="Next", command=lambda: treasure_box_exit())
@@ -710,9 +712,9 @@ def monster_potion_1_ultra():
 def you_died():
     frame_you_died = Frame(root)
     frame_you_died.pack()
-    L_You_Died = Label(frame_monster_attack_1, text=f"You got killed by {monster}.\n"
-                                                    f"You couldn't reach the final treasure.\n"
-                                                    f"Better luck next time.")
+    L_You_Died = Label(frame_monster_attack_1, text=f"Wow! Absolutely stellar. After your abysmal performance at {monster}, \nit seems you have enough backlog to extend your stay at PES,\n at the very least, for another 4 months.\n Who knew you loved the university enough to flunk your exams! \n"
+                                                    f"You will not be able to complete this semster in time.\n Thus, you are deemed unworthy to continue this awesome game made by Vedanth, Udit and Rithvik..\n"
+                                                    f"Now click that quit button before we throw up in our mouths.")
     L_You_Died.pack()
     B_You_died = Button(frame_monster_attack_1, text="Quit", command=lambda: quit())
     B_You_died.pack()
@@ -859,68 +861,68 @@ def get_monster():
     global frame_monster_1
     frame_monster_1 = Frame(root)
     frame_monster_1.pack()
-    L_monster_Wel = Label(frame_monster_1, text="You have to fight a monster.")
+    L_monster_Wel = Label(frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
     L_monster_Wel.pack()
-    monsters = ("Goblin", "Werewolf", "Basilisk", "Minotaur", "Griffin", "Dragon")
+    monsters = ("ISA 1", "ISA 2", "ISA 3", "ISA 4", "ISA 5", "ESA")
     monster = random.choice(monsters)
     # print(monster)
     opp_hp = 100
-    if monster == "Goblin":
+    if monster == "ISA 1":
         m = 1
         # monster 1
         # Attack in range of 0-10
-        L_m1_intro = Label(frame_monster_1, text="You have to face Goblin\n"
-                                                 "The match starts. You get the first chance\n")
+        L_m1_intro = Label(frame_monster_1, text="You have to face ISA 1.\n Ah, the first. You always remember your first.\n ISA, I mean! You always remember your first ISA. \n That's obviously what I meant."
+                                                 "You've made your way to the Mech Block. Sat at your terminal.\n The test has started! Good luck!")
         L_m1_intro.pack()
         fight_monster()
         # opp_att = random.randint(0, 10)
 
-    if monster == "Werewolf":
+    if monster == "ISA 2":
         m = 2
         # monster 2
         # Attack in range of 10-20
-        L_m2_intro = Label(frame_monster_1, text="You have to face Werewolf\n"
+        L_m2_intro = Label(frame_monster_1, text="You have to face ISA 2\n"
                                                  "The match starts. You get the first chance\n")
         L_m2_intro.pack()
         fight_monster()
         # opp_att = random.randint(10, 20)
 
-    if monster == "Basilisk":
+    if monster == "ISA 3":
         m = 3
         # monster 3
         # Attack in range of 20-30
-        L_m3_intro = Label(frame_monster_1, text="You have to face Basilisk\n"
+        L_m3_intro = Label(frame_monster_1, text="You have to face ISA 3\n"
                                                  "The match starts. You get the first chance\n")
         L_m3_intro.pack()
         fight_monster()
         # opp_att = random.randint(20, 30)
 
-    if monster == "Minotaur":
+    if monster == "ISA 4":
         m = 4
         # monster 4
         # Attack in range of 30-40
-        L_m4_intro = Label(frame_monster_1, text="You have to face Minotaur\n"
+        L_m4_intro = Label(frame_monster_1, text="You have to face ISA 4\n"
                                                  "The match starts. You get the first chance\n")
         L_m4_intro.pack()
         fight_monster()
         # opp_att = random.randint(30, 40)
 
 
-    if monster == "Griffin":
+    if monster == "ISA 5":
         m = 5
         # monster 5
         # Attack in range of 40-50
-        L_m5_intro = Label(frame_monster_1, text="You have to face Griffin\n"
+        L_m5_intro = Label(frame_monster_1, text="You have to face ISA 5\n"
                                                  "The match starts. You get the first chance\n")
         L_m5_intro.pack()
         fight_monster()
         # opp_att = random.randint(40, 50)
 
-    if monster == "Dragon":
+    if monster == "ESA":
         m = 6
         # monster 6
         # Attack in range of 50-60
-        L_m6_intro = Label(frame_monster_1, text="You have to face Dragon\n"
+        L_m6_intro = Label(frame_monster_1, text="You have to face the ESA.\n"
                                                  "The match starts. You get the first chance\n")
         L_m6_intro.pack()
         fight_monster()
@@ -931,7 +933,7 @@ def gate():
     frame1.destroy()
     frame_gate = Frame(root)
     frame_gate.pack()
-    L_gate = Label(frame_gate,text="\n\n\n\n\n As you make your way to the entrance of the main block, \n you hear cries that have a tone of urgency and persuasion. \n 'ID CARD HAKOLI! ID CARD HAKOLI! '\n They seem to be coming from an older gentleman. \n Standing beside the apparent quinquagenarian are \ntwo even larger men guarding the entrance like sentinels. \n Gargantuan in physique, they execute their job with extreme proficiency,\n grabbing a hold of anyone who tries to enter the block without their ID card.\n Phew! Thank God you got yours! \n ")
+    L_gate = Label(frame_gate,text="\n\n\n\n\n As you make your way to the entrance of the main block, \n you hear cries that have a tone of urgency and persuasion. \n 'ID CARD HAKOLI! ID CARD HAKOLI! '\n They seem to be coming from an older gentleman in a sky blue attire. \n Standing beside the apparent quinquagenarian are \ntwo even larger men guarding the entrance like sentinels. \n Gargantuan in physique, they execute their job with extreme proficiency,\n grabbing a hold of anyone who tries to enter the block without their ID card.\n Phew! Thank God you got yours! \n ")
     L_gate.pack()
 
     B_gate = Button(frame_gate, text="Next", command=lambda: gate_exit())
