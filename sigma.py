@@ -1,4 +1,5 @@
 from tkinter import *
+from PIL import ImageTk, Image
 import random
 
 
@@ -712,15 +713,22 @@ def monster_potion_1_ultra():
 def you_died():
     frame_you_died = Frame(root)
     frame_you_died.pack()
-    L_You_Died = Label(frame_monster_attack_1, text=f"Wow! Absolutely stellar. After your abysmal performance at {monster}, \nit seems you have enough backlog to extend your stay at PES,\n at the very least, for another 4 months.\n Who knew you loved the university enough to flunk your exams! \n"
-                                                    f"You will not be able to complete this semster in time.\n Thus, you are deemed unworthy to continue this awesome game made by Vedanth, Udit and Rithvik..\n"
+    L_You_Died = Label(frame_monster_attack_1, text=f"Wow! Absolutely stellar. After your abysmal performance at {monster}, \nyou now have backlog hanging over your head.\nYou have enough to extend your stay at PES for the semester by a few weeks.\n Who knew you loved the university enough to flunk your exams! \n"
+                                                    f"You will not be able to complete this semster in time.\n Thus, you are deemed unworthy to continue this awesome game\n made by Vedanth, Udit and Rithvik..\n"
                                                     f"Now click that quit button before we throw up in our mouths.")
     L_You_Died.pack()
     B_You_died = Button(frame_monster_attack_1, text="Quit", command=lambda: quit())
     B_You_died.pack()
 
 def quit():
-    root.quit()
+    quit_frame= Frame(root)
+    quit_frame.pack()
+    quit_frame.place(anchor='center', relx=0.5, rely=0.5)
+    img= ImageTk.PhotoImage(Image.open('brothers.jpg'))
+    label= Label(quit_frame, image=img)
+    label.pack()
+
+    
 
 def monster_counterattack_1():
     global hp
