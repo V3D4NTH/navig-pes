@@ -17,8 +17,9 @@ Mythril_Armour = False  # decreases opp_att by 20
 Orichalium_Armour = False  # decreases opp_att by 30
 Uru_Armour= False # decreases opp_att by 50
 Adamantia_Armour= False # decreases opp_att by 60
-potion = 1  # increases hp by 30. Cost=300 rupees
-ultra_potion = 1  # increases hp by 50. Cost=600 rupees
+pixel = 1  # increases hp by 30. Cost=300 rupees
+schezwan = 1  # increases hp by 50. Cost=600 rupees
+chole = 1
 which_potion = 0  # variable that lets you select the potion that you want to take.
 
 def get_room():
@@ -60,128 +61,167 @@ def treasure_box_exit():
     get_room()
 
 
-def shop_Potion():
-    global frame_shop_potion
+def shop_pixel():
+    global frame_shop_pixel
     frame_shop_1.destroy()
-    frame_shop_potion = Frame(root)
-    frame_shop_potion.pack()
-    L_Shop_Potion_1 = Label(frame_shop_potion, text=f"You currently have {potion} Small potions and {ultra_potion} Ultra potions with you.\n"
-                                                    f"We have 2 types of potion.\n"
-                                                    f"Small Potion and Ultra Potion\n"
+    frame_shop_pixel = Frame(root)
+    frame_shop_pixel.pack()
+    L_shop_pixel_1 = Label(frame_shop_pixel, text=f"You currently have {pixel} Limonatas, {schezwan} Schezwan Noodles, and {chole} Chole Bhature with you.\n"
+                                                    f"We sell \n"
+                                                    f"Limonata\n"
+                                                    f"Schezwan Noodles\n"
+                                                    f"Chole Bhature\n"
                                                     f"Would you like to know more about them?\n")
-    L_Shop_Potion_1.pack()
-    B_Shop_Potion_Y = Button(frame_shop_potion, text="Yes", command=lambda: shop_potion_yes())
-    B_Shop_Potion_N = Button(frame_shop_potion, text="No", command=lambda: shop_potion_no())
-    B_Shop_Potion_Y.pack(side=BOTTOM)
-    B_Shop_Potion_N.pack(side=BOTTOM)
+    L_shop_pixel_1.pack()
+    B_shop_pixel_Y = Button(frame_shop_pixel, text="Yes", command=lambda: shop_pixel_yes())
+    B_shop_pixel_N = Button(frame_shop_pixel, text="No", command=lambda: shop_pixel_no())
+    B_shop_pixel_Y.pack(side=BOTTOM)
+    B_shop_pixel_N.pack(side=BOTTOM)
 
-def shop_potion_no():
-    global frame_shop_potion_no
-    frame_shop_potion.destroy()
+def shop_pixel_no():
+    global frame_shop_pixel_no
+    frame_shop_pixel.destroy()
 
-    frame_shop_potion_no = Frame(root)
-    frame_shop_potion_no.pack()
-    L_Shop_Potion_No = Label(frame_shop_potion_no, text="Okay then..\n"
-                                                        "Which potion would you like to buy?")
-    L_Shop_Potion_No.pack()
-    B_Shop_Potion_No_SP = Button(frame_shop_potion_no, text="Small Potion", command=lambda: shop_potions_small())
-    B_Shop_Potion_No_UP = Button(frame_shop_potion_no, text="Ultra Potion", command=lambda: shop_potions_ultra())
-    B_Shop_Potion_No_UP.pack()
-    B_Shop_Potion_No_SP.pack()
+    frame_shop_pixel_no = Frame(root)
+    frame_shop_pixel_no.pack()
+    L_shop_pixel_No = Label(frame_shop_pixel_no, text="Ummm okay then..\n"
+                                                        "What would you like to buy?")
+    L_shop_pixel_No.pack()
+    B_shop_pixel_No_SP = Button(frame_shop_pixel_no, text="Limonata", command=lambda: shop_pixels_small())
+    B_shop_pixel_No_UP = Button(frame_shop_pixel_no, text="Schezwan Noodles", command=lambda: shop_pixels_ultra())
+    B_shop_pixel_No_C = Button(frame_shop_pixel_no, text="Chole Bhature", command=lambda:shop_pixels_c())
+    B_shop_pixel_No_UP.pack()
+    B_shop_pixel_No_SP.pack()
+    B_shop_pixel_No_C.pack()
 
-def shop_potion_yes():
-    global frame_shop_potion_yes
-    frame_shop_potion.destroy()
-    frame_shop_potion_yes = Frame(root)
-    frame_shop_potion_yes.pack()
-    L_Shop_Potion_Yes = Label(frame_shop_potion_yes, text="Small potion that costs 250 rupees will increase your HP by 30\n"
+def shop_pixel_yes():
+    global frame_shop_pixel_yes
+    frame_shop_pixel.destroy()
+    frame_shop_pixel_yes = Frame(root)
+    frame_shop_pixel_yes.pack()
+    L_shop_pixel_Yes = Label(frame_shop_pixel_yes, text="Limonata that costs 250 rupees will increase your HP by 30\n"
+                                                        "Schezwan Noodles that costs 600 rupees will increase your HP by 50\n"
                                                           "And..\n"
-                                                          "Ultra potion that costs 600 rupees will increase your HP by 50")
-    L_Shop_Potion_Yes.pack()
-    B_Shop_Potion_Yes = Button(frame_shop_potion_yes, text="Next", command=lambda: shop_potion_yestono())
-    B_Shop_Potion_Yes.pack()
+                                                          "Chole Bhature that costs 40 rupees will increase your HP by 60")
+    L_shop_pixel_Yes.pack()
+    B_shop_pixel_Yes = Button(frame_shop_pixel_yes, text="Next", command=lambda: shop_pixel_yestono())
+    B_shop_pixel_Yes.pack()
 
-def shop_potion_yestono():
-    frame_shop_potion_yes.destroy()
-    shop_potion_no()
+def shop_pixel_yestono():
+    frame_shop_pixel_yes.destroy()
+    shop_pixel_no()
 
-def shop_potions_small():
-    global frame_shop_potion_small
-    frame_shop_potion_no.destroy()
-    frame_shop_potion_small = Frame(root)
-    frame_shop_potion_small.pack()
-    L_shop_potion_small = Label(frame_shop_potion_small, text="How many Small potions would you like to buy?\n"
+def shop_pixels_small():
+    global frame_shop_pixel_small
+    frame_shop_pixel_no.destroy()
+    frame_shop_pixel_small = Frame(root)
+    frame_shop_pixel_small.pack()
+    L_shop_pixel_small = Label(frame_shop_pixel_small, text="How many Small potions would you like to buy?\n"
                                                               "Cost=250 rupees\n"
                                                               f"You have {rupees} rupees")
-    L_shop_potion_small.pack()
+    L_shop_pixel_small.pack()
 
-    B_shop_potion_small = Button(frame_shop_potion_small, text="Buy", command=lambda: shop_potion_small_buy())
-    B_shop_potion_small.pack()
-    B_shop_potion_small_main = Button(frame_shop_potion_small, text="Back", command=lambda: shop_potions_small_to_main())
-    B_shop_potion_small_main.pack(side=BOTTOM)
+    B_shop_pixel_small = Button(frame_shop_pixel_small, text="Buy", command=lambda: shop_pixel_small_buy())
+    B_shop_pixel_small.pack()
+    B_shop_pixel_small_main = Button(frame_shop_pixel_small, text="Back", command=lambda: shop_pixels_small_to_main())
+    B_shop_pixel_small_main.pack(side=BOTTOM)
 
-def shop_potions_small_to_main():
-    frame_shop_potion_small.destroy()
+def shop_pixels_small_to_main():
+    frame_shop_pixel_small.destroy()
     shop()
 
-def shop_potion_small_buy():
+def shop_pixel_small_buy():
     global rupees
-    global potion
+    global pixel
     if rupees - 250 < 0:
-        L_shop_potion_small = Label(frame_shop_potion_small, text="You don't have enough rupees.\n"
+        L_shop_pixel_small = Label(frame_shop_pixel_small, text="You don't have enough rupees.\n"
                                                                   "Let's shop for something else..\n")
-        L_shop_potion_small.pack()
+        L_shop_pixel_small.pack()
         # If user has enough rupees
     else:
-        potion = potion + 1
+        pixel = pixel + 1
         rupees = rupees - 250
-        L_shop_potion_small = Label(frame_shop_potion_small, text=(f"You now have {rupees} rupees with you\n"
-                                                                   f"You now have {potion} Small Potions with you\n"
+        L_shop_pixel_small = Label(frame_shop_pixel_small, text=(f"You now have {rupees} rupees with you\n"
+                                                                   f"You now have {pixel} Small Potions with you\n"
                                                                    "Let's continue shopping.."))
-        L_shop_potion_small.pack()
+        L_shop_pixel_small.pack()
 
-def shop_potions_ultra():
-    global frame_shop_potion_ultra
-    frame_shop_potion_no.destroy()
-    frame_shop_potion_ultra = Frame(root)
-    frame_shop_potion_ultra.pack()
-    L_shop_potion_ultra = Label(frame_shop_potion_ultra, text="How many Ultra potions would you like to buy?\n"
+def shop_pixels_ultra():
+    global frame_shop_pixel_ultra
+    frame_shop_pixel_no.destroy()
+    frame_shop_pixel_ultra = Frame(root)
+    frame_shop_pixel_ultra.pack()
+    L_shop_pixel_ultra = Label(frame_shop_pixel_ultra, text="How many Ultra potions would you like to buy?\n"
                                                               "Cost=600 rupees\n"
                                                               f"You have {rupees} rupees")
-    L_shop_potion_ultra.pack()
-    B_shop_potion_ultra = Button(frame_shop_potion_ultra, text="Buy", command=lambda: shop_potion_ultra_buy())
-    B_shop_potion_ultra.pack()
-    B_shop_potion_ultra_main = Button(frame_shop_potion_ultra, text="Back", command=lambda: shop_potions_ultra_to_main())
-    B_shop_potion_ultra_main.pack(side=BOTTOM)
+    L_shop_pixel_ultra.pack()
+    B_shop_pixel_ultra = Button(frame_shop_pixel_ultra, text="Buy", command=lambda: shop_pixel_ultra_buy())
+    B_shop_pixel_ultra.pack()
+    B_shop_pixel_ultra_main = Button(frame_shop_pixel_ultra, text="Back", command=lambda: shop_pixels_ultra_to_main())
+    B_shop_pixel_ultra_main.pack(side=BOTTOM)
 
-def shop_potions_ultra_to_main():
-    frame_shop_potion_ultra.destroy()
+def shop_pixels_ultra_to_main():
+    frame_shop_pixel_ultra.destroy()
     shop()
 
-def shop_potion_ultra_buy():
+def shop_pixel_ultra_buy():
     global rupees
-    global ultra_potion
-    # global frame_shop_potion_ultra_buy
-    # frame_shop_potion_ultra_buy.destroy()
-    # frame_shop_potion_ultra_buy = Frame(root)
-    # frame_shop_potion_ultra_buy.pack()
+    global schezwan
+    # global frame_shop_pixel_ultra_buy
+    # frame_shop_pixel_ultra_buy.destroy()
+    # frame_shop_pixel_ultra_buy = Frame(root)
+    # frame_shop_pixel_ultra_buy.pack()
     if rupees - 600 < 0:
-        L_shop_potion_ultra = Label(frame_shop_potion_ultra, text="You don't have enough rupees.\n"
+        L_shop_pixel_ultra = Label(frame_shop_pixel_ultra, text="You don't have enough rupees.\n"
                                                                   f"You have {rupees} rupees with you\n"
-                                                                   f"You have {ultra_potion} Ultra Potions with you\n"
+                                                                   f"You have {schezwan} Ultra Potions with you\n"
                                                                    "Let's shop for something else..\n")
-        L_shop_potion_ultra.pack()
-        # B_shop_potion_ultra_main = Button(frame_shop_potion_ultra, text="Back")
-        # B_shop_potion_ultra_main.pack()
+        L_shop_pixel_ultra.pack()
+        # B_shop_pixel_ultra_main = Button(frame_shop_pixel_ultra, text="Back")
+        # B_shop_pixel_ultra_main.pack()
         # If user has enough rupees
     else:
-        ultra_potion = ultra_potion + 1
+        schezwan = schezwan + 1
         rupees = rupees - 600
-        L_shop_potion_ultra = Label(frame_shop_potion_ultra, text=(f"You now have {rupees} rupees with you\n"
-                                                                   f"You now have {ultra_potion} Ultra Potions with you\n"
+        L_shop_pixel_ultra = Label(frame_shop_pixel_ultra, text=(f"You now have {rupees} rupees with you\n"
+                                                                   f"You now have {schezwan} Ultra Potions with you\n"
                                                                    "Let's continue shopping.."))
-        L_shop_potion_ultra.pack()
+        L_shop_pixel_ultra.pack()
 
+def shop_pixels_c():
+    global frame_shop_pixel_c
+    frame_shop_pixel_no.destroy()
+    frame_shop_pixel_c = Frame(root)
+    frame_shop_pixel_c.pack()
+    L_shop_pixel_c = Label(frame_shop_pixel_c, text="How many Chole Bhatures would you like to buy?\n"
+                                                              "Cost=40 rupees\n"
+                                                              f"You have {rupees} rupees")
+    L_shop_pixel_c.pack()
+
+    B_shop_pixel_c = Button(frame_shop_pixel_c, text="Buy", command=lambda: shop_pixel_c_buy())
+    B_shop_pixel_c.pack()
+    B_shop_pixel_c_main = Button(frame_shop_pixel_c, text="Back", command=lambda: shop_pixels_c_to_main())
+    B_shop_pixel_c_main.pack(side=BOTTOM)
+
+def shop_pixels_c_to_main():
+    frame_shop_pixel_c.destroy()
+    shop()
+
+def shop_pixel_c_buy():
+    global rupees
+    global chole
+    if rupees - 40 < 0:
+        L_shop_pixel_c = Label(frame_shop_pixel_c, text="You don't have enough rupees.\n"
+                                                                  "Let's shop for something else..\n")
+        L_shop_pixel_c.pack()
+        # If user has enough rupees
+    else:
+        chole = chole + 1
+        rupees = rupees - 40
+        L_shop_pixel_c = Label(frame_shop_pixel_c, text=(f"You now have {rupees} rupees with you\n"
+                                                                   f"You now have {chole} Chole Bhatures with you\n"
+                                                                   "Let's continue shopping.."))
+        L_shop_pixel_c.pack()
 
 
 def shop_sword():
@@ -627,17 +667,17 @@ def shop():
     global Orichalium_Armour
     global Uru_Armour
     global Adamantia_Armour
-    global potion
-    global ultra_potion
+    global pixel
+    global schezwan
     global frame_shop_1
     frame_shop_1 = Frame(root)
     frame_shop_1.pack()
-    L_Shop_Wel=Label(frame_shop_1, text="Welcome to the store..\nWhat would you like to buy?\n")
+    L_Shop_Wel=Label(frame_shop_1, text="Ah, break time!..\nWhat would you like to eat today?\n")
     L_Shop_Wel.pack()
     # store1 variable to ask user what necessity do they need to buy
     # store1 = input("1=Potion, 2=Sword, 3=Armor, 4=Exit Store\n")
-    B_Shop_Potion = Button(frame_shop_1, text="Potion", command=lambda: shop_Potion())
-    B_Shop_Potion.pack()
+    B_shop_pixel = Button(frame_shop_1, text="Pixel Food Court", command=lambda: shop_pixel())
+    B_shop_pixel.pack()
     B_Shop_Sword = Button(frame_shop_1, text="Sword", command=lambda: shop_sword())
     B_Shop_Sword.pack()
     B_Shop_Armor = Button(frame_shop_1, text="Armor", command=lambda: shop_armor())
@@ -660,19 +700,21 @@ def monster_potion_1():
     global frame_monster_potion_1
     frame_monster_potion_1 = Frame(root)
     frame_monster_potion_1.pack()
-    L_monster_potion_info = Label(frame_monster_potion_1, text="We have two types of potions."
+    L_monster_potion_info = Label(frame_monster_potion_1, text="Welcome to the Pixel Food Court!\n"
                                                               "Small potion that increase your HP by 30\n"
                                                               "And..\n"
                                                               "Ultra potion that increase your HP by 50\n"
                                                               f"Your HP is {hp}\n"
-                                                              f"You have {ultra_potion} ultra potions"
-                                                              f" and {potion} potions\n"
+                                                              f"You have {schezwan} ultra potions"
+                                                              f" and {pixel} potions\n"
                                                               "Which potion would you like to drink?\n")
     L_monster_potion_info.pack()
-    B_monster_potion_small = Button(frame_monster_potion_1, text="Small Potion", command=lambda: monster_potion_1_small())
-    B_monster_potion_ultra = Button(frame_monster_potion_1, text="Ultra Potion", command=lambda: monster_potion_1_ultra())
-    B_monster_potion_small.pack()
-    B_monster_potion_ultra.pack()
+    B_monster_potion_lime = Button(frame_monster_potion_1, text="Nimbu Paani", command=lambda: monster_potion_1_lime())
+    B_monster_potion_schezwan = Button(frame_monster_potion_1, text="Schezwan Noodles", command=lambda: monster_potion_1_schezwan())
+    B_monster_potion_chole = Button(frame_monster_potion_1, text="Nimbu Paani", command=lambda: monster_potion_1_chole())
+    B_monster_potion_lime.pack()
+    B_monster_potion_schezwan.pack()
+    B_monster_potion_chole.pack()
     B_monster_potion_back = Button(frame_monster_potion_1, text="back to battle", command=lambda: monster_potion_to_attack())
     B_monster_potion_back.pack()
                                      
@@ -680,35 +722,50 @@ def monster_potion_to_attack():
     frame_monster_potion_1.destroy()
     fight_monster()
 
-def monster_potion_1_small():
-    global potion
+def monster_potion_1_lime():
+    global pixel
     global hp
-    if potion == 0:
-        L_monster_potion_1_small = Label(frame_monster_potion_1, text="You have no small potions")
+    if pixel == 0:
+        L_monster_potion_1_small = Label(frame_monster_potion_1, text="You have no more Nimbu Paani")
         L_monster_potion_1_small.pack()
     else:
-        potion = potion - 1
+        pixel = pixel - 1
         hp = hp + 30
         if hp > 100:
             hp = 100
         L_monster_potion_1_small = Label(frame_monster_potion_1, text=f"You HP is now {hp}\n"
-                                                                      f"You have {potion} small potions remaining")
+                                                                      f"You have {pixel} small potions remaining")
         L_monster_potion_1_small.pack()
 
-def monster_potion_1_ultra():
-    global ultra_potion
+def monster_potion_1_schezwan():
+    global schezwan
     global hp
-    if ultra_potion == 0:
-        L_monster_potion_1_ultra = Label(frame_monster_potion_1, text="You have no ultra potions")
-        L_monster_potion_1_ultra.pack()
+    if schezwan == 0:
+        L_monster_potion_1_schezwan = Label(frame_monster_potion_1, text="You have no Schezwan Noodles")
+        L_monster_potion_1_schezwan.pack()
     else:
-        ultra_potion = ultra_potion - 1
+        schezwan = schezwan - 1
         hp = hp + 50
         if hp > 100:
             hp = 100
-        L_monster_potion_1_ultra = Label(frame_monster_potion_1, text=f"You HP is now {hp}\n"
-                                                                      f"You have {ultra_potion} ultra potions remaining")
-        L_monster_potion_1_ultra.pack()
+        L_monster_potion_1_schezwan = Label(frame_monster_potion_1, text=f"You HP is now {hp}\n"
+                                                                      f"You have {schezwan} ultra potions remaining")
+        L_monster_potion_1_schezwan.pack()
+
+def monster_potion_1_chole():
+    global chole
+    global hp
+    if chole == 0:
+        L_monster_potion_1_chole = Label(frame_monster_potion_1, text="You have no Chole Bhature")
+        L_monster_potion_1_chole.pack()
+    else:
+        chole = chole - 1
+        hp = hp + 60
+        if hp > 100:
+            hp = 100
+        L_monster_potion_1_chole = Label(frame_monster_potion_1, text=f"You HP is now {hp}\n"
+                                                                      f"You have {chole} Chole Bhature remaining")
+        L_monster_potion_1_chole.pack()
 
 def you_died():
     frame_you_died = Frame(root)
@@ -826,14 +883,16 @@ def drink_potion():
                                                               "And..\n"
                                                               "Ultra potion that increase your HP by 50\n"
                                                               f"Your HP is {hp}\n"
-                                                              f"You have {ultra_potion} ultra potions"
-                                                              f" and {potion} potions\n"
+                                                              f"You have {schezwan} ultra potions"
+                                                              f" and {pixel} potions\n"
                                                               "Which potion would you like to drink?\n")
     L_monster_potion_info.pack()
-    B_monster_potion_small = Button(frame_monster_potion_1, text="Small Potion", command=lambda: monster_potion_1_small())
-    B_monster_potion_ultra = Button(frame_monster_potion_1, text="Ultra Potion", command=lambda: monster_potion_1_ultra())
-    B_monster_potion_small.pack()
-    B_monster_potion_ultra.pack()
+    B_monster_potion_lime = Button(frame_monster_potion_1, text="Small Potion", command=lambda: monster_potion_1_lime())
+    B_monster_potion_schezwan = Button(frame_monster_potion_1, text="Ultra Potion", command=lambda: monster_potion_1_schezwan())
+    B_monster_potion_chole = Button(frame_monster_potion_1, text="Ultra Potion", command=lambda: monster_potion_1_chole())
+    B_monster_potion_lime.pack()
+    B_monster_potion_schezwan.pack()
+    B_monster_potion_chole.pack()
     B_next_room = Button(frame_monster_potion_1, text="Next", command=lambda: monster_rest_to_room())
     B_next_room.pack()
 
