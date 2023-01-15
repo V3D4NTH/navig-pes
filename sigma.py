@@ -111,10 +111,14 @@ def shop_pixel_yes():
     frame_shop_pixel.destroy()
     frame_shop_pixel_yes = Frame(root)
     frame_shop_pixel_yes.pack()
-    L_shop_pixel_Yes = Label(frame_shop_pixel_yes, text="Limonata that costs 250 rupees will increase your HP by 30\n"
-                                                        "Schezwan Noodles that costs 600 rupees will increase your HP by 50\n"
-                             "And..\n"
-                             "Chole Bhature that costs 40 rupees will increase your HP by 60")
+    L_shop_pixel_Yes = Label(frame_shop_pixel_yes, text="Limonata: A unique blend of lime and a hint of mint\n"
+                                                        "Cost: 15-----------------HP: +30\n"
+                                                        "\n""\n""\n"
+                                                        "Schezwan Noodles: One of the most famous Chinese take-out dishes. And with good reason\n"
+                                                        "Cost: 30-----------------HP: +50\n"
+                                                        "\n""\n""\n"
+                                                        "Chole Bhature: It's not food. It's an emotion. My personal favourite\n"
+                                                        "Cost: 40-----------------HP: +60")
     L_shop_pixel_Yes.pack()
     B_shop_pixel_Yes = Button(
         frame_shop_pixel_yes, text="Next", command=lambda: shop_pixel_yestono())
