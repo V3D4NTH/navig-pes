@@ -287,8 +287,8 @@ def can():
         L_can_owned = Label(
             frame_can, text="Right now you have bun_sam ")
         L_can_owned.pack()
-    L_can_intro = Label(frame_can, text="We have 5 types of swords..\n"
-                                                      "chai, puff, mas_puri, nippat and bun_sam\n"
+    L_can_intro = Label(frame_can, text="We have 5 items..\n"
+                                                      "Chai Dagger, Puff Corn , Masala Puri Mallet, Nippat Nunchuks and Bun Samosa BattleAxe TM\n"
                                                       "Would you like to know more about them?\n")
     L_can_intro.pack()
     B_can_Y = Button(frame_can, text="Yes",
@@ -304,8 +304,11 @@ def can_yes():
     frame_can.destroy()
     frame_can_yes = Frame(root)
     frame_can_yes.pack()
-    L_can_Y_info = Label(frame_can_yes, text="chai costs 200 rupees and increases your attack by 20\n"
-                                "puff costs 300 rupees and increases your attack by 30\n"
+    L_can_Y_info = Label(frame_can_yes, text="Chai Dagger: \n"
+                                             "Cost: 200-----------Damage: 20 HP\n\n"
+                                             "Puff Corn Mallet: \n"
+                                             "Cost: 300-----------Damage: 30 HP\n\n"
+                                             "Masala Puri: "
                                 "mas_puri costs 400 rupees and increases your attack by 40\n"
                                 "nippat costs 500 rupees and increases your attack by 50\n"
                                 "bun_sam costs 600 rupees and increases your attack by 60\n")
