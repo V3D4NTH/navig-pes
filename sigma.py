@@ -7,11 +7,11 @@ rupees = 600  # used in store to buy items
 hp = 100  # user's hp
 opp_hp = 100  # monster's hp
 extra_hp = 0  # extra opponent hp for boss round
-Iron_Sword = False  # increases attack by 20
-Mythril_Sword = False  # increases attack by 30
-Orichalium_Sword = False  # increases attack by 40
-Uru_Sword = False  # increases attack by 50
-Adamantia_Sword = False  # increases attack by 60
+chai = False  # increases attack by 20
+puff = False  # increases attack by 30
+mas_puri = False  # increases attack by 40
+nippat = False  # increases attack by 50
+bun_sam = False  # increases attack by 60
 Iron_Armour = False  # decreases opp_att by 10
 Mythril_Armour = False  # decreases opp_att by 20
 Orichalium_Armour = False  # decreases opp_att by 30
@@ -257,241 +257,241 @@ def shop_pixel_c_buy():
         L_shop_pixel_c.pack()
 
 
-def shop_sword():
-    global frame_shop_sword
-    global Iron_Sword
-    global Mythril_Sword
-    global Orichalium_Sword
-    global Uru_Sword
-    global Adamantia_Sword
+def can():
+    global frame_can
+    global chai
+    global puff
+    global mas_puri
+    global nippat
+    global bun_sam
     frame_shop_1.destroy()
-    frame_shop_sword = Frame(root)
-    frame_shop_sword.pack()
-    if Iron_Sword:
-        L_Shop_Sword_owned = Label(
-            frame_shop_sword, text="Right now, you have Iron_Sword")
-        L_Shop_Sword_owned.pack()
-    elif Mythril_Sword:
-        L_Shop_Sword_owned = Label(
-            frame_shop_sword, text="Right now you have Mythril_Sword ")
-        L_Shop_Sword_owned.pack()
-    elif Orichalium_Sword:
-        L_Shop_Sword_owned = Label(
-            frame_shop_sword, text="Right now you have Orichalium_Sword")
-        L_Shop_Sword_owned.pack()
-    elif Uru_Sword:
-        L_Shop_Sword_owned = Label(
-            frame_shop_sword, text="Right now you have Uru_Sword ")
-        L_Shop_Sword_owned.pack()
-    elif Adamantia_Sword:
-        L_Shop_Sword_owned = Label(
-            frame_shop_sword, text="Right now you have Adamantia_Sword ")
-        L_Shop_Sword_owned.pack()
-    L_Shop_Sword_intro = Label(frame_shop_sword, text="We have 5 types of swords..\n"
-                                                      "Iron_Sword, Mythril_Sword, Orichalium_Sword, Uru_Sword and Adamantia_Sword\n"
+    frame_can = Frame(root)
+    frame_can.pack()
+    if chai:
+        L_can_owned = Label(
+            frame_can, text="Right now, you have chai")
+        L_can_owned.pack()
+    elif puff:
+        L_can_owned = Label(
+            frame_can, text="Right now you have puff ")
+        L_can_owned.pack()
+    elif mas_puri:
+        L_can_owned = Label(
+            frame_can, text="Right now you have mas_puri")
+        L_can_owned.pack()
+    elif nippat:
+        L_can_owned = Label(
+            frame_can, text="Right now you have nippat ")
+        L_can_owned.pack()
+    elif bun_sam:
+        L_can_owned = Label(
+            frame_can, text="Right now you have bun_sam ")
+        L_can_owned.pack()
+    L_can_intro = Label(frame_can, text="We have 5 types of swords..\n"
+                                                      "chai, puff, mas_puri, nippat and bun_sam\n"
                                                       "Would you like to know more about them?\n")
-    L_Shop_Sword_intro.pack()
-    B_Shop_Sword_Y = Button(frame_shop_sword, text="Yes",
-                            command=lambda: shop_sword_yes())
-    B_Shop_Sword_N = Button(frame_shop_sword, text="No",
-                            command=lambda: shop_sword_no())
-    B_Shop_Sword_Y.pack()
-    B_Shop_Sword_N.pack()
+    L_can_intro.pack()
+    B_can_Y = Button(frame_can, text="Yes",
+                            command=lambda: can_yes())
+    B_can_N = Button(frame_can, text="No",
+                            command=lambda: can_no())
+    B_can_Y.pack()
+    B_can_N.pack()
 
 
-def shop_sword_yes():
-    global frame_shop_sword_yes
-    frame_shop_sword.destroy()
-    frame_shop_sword_yes = Frame(root)
-    frame_shop_sword_yes.pack()
-    L_Shop_Sword_Y_info = Label(frame_shop_sword_yes, text="Iron_Sword costs 200 rupees and increases your attack by 20\n"
-                                "Mythril_Sword costs 300 rupees and increases your attack by 30\n"
-                                "Orichalium_Sword costs 400 rupees and increases your attack by 40\n"
-                                "Uru_Sword costs 500 rupees and increases your attack by 50\n"
-                                "Adamantia_Sword costs 600 rupees and increases your attack by 60\n")
-    L_Shop_Sword_Y_info.pack()
+def can_yes():
+    global frame_can_yes
+    frame_can.destroy()
+    frame_can_yes = Frame(root)
+    frame_can_yes.pack()
+    L_can_Y_info = Label(frame_can_yes, text="chai costs 200 rupees and increases your attack by 20\n"
+                                "puff costs 300 rupees and increases your attack by 30\n"
+                                "mas_puri costs 400 rupees and increases your attack by 40\n"
+                                "nippat costs 500 rupees and increases your attack by 50\n"
+                                "bun_sam costs 600 rupees and increases your attack by 60\n")
+    L_can_Y_info.pack()
 
-    B_Shop_Sword_Yes = Button(
-        frame_shop_sword_yes, text="Next", command=lambda: shop_sword_yestono())
-    B_Shop_Sword_Yes.pack()
-
-
-def shop_sword_yestono():
-    frame_shop_sword_yes.destroy()
-    shop_sword_no()
+    B_can_Yes = Button(
+        frame_can_yes, text="Next", command=lambda: can_yestono())
+    B_can_Yes.pack()
 
 
-def shop_sword_no():
-    global frame_shop_swords_no
-    frame_shop_sword.destroy()
-    frame_shop_swords_no = Frame(root)
-    frame_shop_swords_no.pack()
-    L_Shop_Swords_N = Label(frame_shop_swords_no,
+def can_yestono():
+    frame_can_yes.destroy()
+    can_no()
+
+
+def can_no():
+    global frame_cans_no
+    frame_can.destroy()
+    frame_cans_no = Frame(root)
+    frame_cans_no.pack()
+    L_cans_N = Label(frame_cans_no,
                             text="Which sword would you like to buy?\n")
-    L_Shop_Swords_N.pack()
-    B_Shop_Swords_Sword1 = Button(
-        frame_shop_swords_no, text="Iron_Sword", command=lambda: shop_sword_sword1())
-    B_Shop_Swords_Sword1.pack()
-    B_Shop_Swords_Sword2 = Button(
-        frame_shop_swords_no, text="Mythril_Sword", command=lambda: shop_sword_sword2())
-    B_Shop_Swords_Sword2.pack()
-    B_Shop_Swords_Sword3 = Button(
-        frame_shop_swords_no, text="Orichalium_Sword", command=lambda: shop_sword_sword3())
-    B_Shop_Swords_Sword3.pack()
-    B_Shop_Swords_Sword4 = Button(
-        frame_shop_swords_no, text="Uru_Sword", command=lambda: shop_sword_sword4())
-    B_Shop_Swords_Sword4.pack()
-    B_Shop_Swords_Sword5 = Button(
-        frame_shop_swords_no, text="Adamantia_Sword", command=lambda: shop_sword_sword5())
-    B_Shop_Swords_Sword5.pack()
-    B_Shop_Swords_back = Button(
-        frame_shop_swords_no, text="back", command=lambda: shop_sword_to_main())
-    B_Shop_Swords_back.pack(side=BOTTOM)
+    L_cans_N.pack()
+    B_cans_Sword1 = Button(
+        frame_cans_no, text="chai", command=lambda: can_sword1())
+    B_cans_Sword1.pack()
+    B_cans_Sword2 = Button(
+        frame_cans_no, text="puff", command=lambda: can_sword2())
+    B_cans_Sword2.pack()
+    B_cans_Sword3 = Button(
+        frame_cans_no, text="mas_puri", command=lambda: can_sword3())
+    B_cans_Sword3.pack()
+    B_cans_Sword4 = Button(
+        frame_cans_no, text="nippat", command=lambda: can_sword4())
+    B_cans_Sword4.pack()
+    B_cans_Sword5 = Button(
+        frame_cans_no, text="bun_sam", command=lambda: can_sword5())
+    B_cans_Sword5.pack()
+    B_cans_back = Button(
+        frame_cans_no, text="back", command=lambda: can_to_main())
+    B_cans_back.pack(side=BOTTOM)
 
 
-def shop_sword_sword1():
-    global Iron_Sword
-    global Mythril_Sword
-    global Orichalium_Sword
-    global Uru_Sword
-    global Adamantia_Sword
+def can_sword1():
+    global chai
+    global puff
+    global mas_puri
+    global nippat
+    global bun_sam
     global rupees
-    if Iron_Sword == False:
+    if chai == False:
         if rupees > 200:
             rupees = rupees - 200
-            L_shop_swords_sword1 = Label(frame_shop_swords_no, text="You now have Iron_Sword\n"
+            L_cans_sword1 = Label(frame_cans_no, text="You now have chai\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_swords_sword1.pack()
-            Iron_Sword = True
-            Mythril_Sword = False
-            Orichalium_Sword = False
-            Uru_Sword = False
-            Adamantia_Sword = False
+            L_cans_sword1.pack()
+            chai = True
+            puff = False
+            mas_puri = False
+            nippat = False
+            bun_sam = False
 
         else:
-            L_shop_swords_sword1 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+            L_cans_sword1 = Label(frame_cans_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_swords_sword1.pack()
+            L_cans_sword1.pack()
     else:
-        L_shop_swords_sword1 = Label(
-            frame_shop_swords_no, text="You already have Iron_Sword")
-        L_shop_swords_sword1.pack()
+        L_cans_sword1 = Label(
+            frame_cans_no, text="You already have chai")
+        L_cans_sword1.pack()
 
 
-def shop_sword_sword2():
-    global Iron_Sword
-    global Mythril_Sword
-    global Orichalium_Sword
-    global Uru_Sword
-    global Adamantia_Sword
+def can_sword2():
+    global chai
+    global puff
+    global mas_puri
+    global nippat
+    global bun_sam
     global rupees
-    if Mythril_Sword == False:
+    if puff == False:
         if rupees > 300:
             rupees = rupees - 300
-            L_shop_swords_sword2 = Label(frame_shop_swords_no, text="You now have Mythril_Sword\n"
+            L_cans_sword2 = Label(frame_cans_no, text="You now have puff\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_swords_sword2.pack()
-            Iron_Sword = False
-            Mythril_Sword = True
-            Orichalium_Sword = False
+            L_cans_sword2.pack()
+            chai = False
+            puff = True
+            mas_puri = False
 
         else:
-            L_shop_swords_sword2 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+            L_cans_sword2 = Label(frame_cans_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_swords_sword2.pack()
+            L_cans_sword2.pack()
     else:
-        L_shop_swords_sword2 = Label(
-            frame_shop_swords_no, text="You already have Mythril_Sword")
-        L_shop_swords_sword2.pack()
+        L_cans_sword2 = Label(
+            frame_cans_no, text="You already have puff")
+        L_cans_sword2.pack()
 
 
-def shop_sword_sword3():
-    global Iron_Sword
-    global Mythril_Sword
-    global Orichalium_Sword
-    global Uru_Sword
-    global Adamantia_Sword
+def can_sword3():
+    global chai
+    global puff
+    global mas_puri
+    global nippat
+    global bun_sam
     global rupees
-    if Orichalium_Sword == False:
+    if mas_puri == False:
         if rupees > 400:
             rupees = rupees - 400
-            L_shop_swords_sword3 = Label(frame_shop_swords_no, text="You now have Orichalium_Sword\n"
+            L_cans_sword3 = Label(frame_cans_no, text="You now have mas_puri\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_swords_sword3.pack()
-            Iron_Sword = False
-            Mythril_Sword = False
-            Orichalium_Sword = True
+            L_cans_sword3.pack()
+            chai = False
+            puff = False
+            mas_puri = True
 
         else:
-            L_shop_swords_sword3 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+            L_cans_sword3 = Label(frame_cans_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_swords_sword3.pack()
+            L_cans_sword3.pack()
     else:
-        L_shop_swords_sword3 = Label(
-            frame_shop_swords_no, text="You already have Orichalium_Sword")
-        L_shop_swords_sword3.pack()
+        L_cans_sword3 = Label(
+            frame_cans_no, text="You already have mas_puri")
+        L_cans_sword3.pack()
 
 
-def shop_sword_sword4():
-    global Iron_Sword
-    global Mythril_Sword
-    global Orichalium_Sword
-    global Uru_Sword
-    global Adamantia_Sword
+def can_sword4():
+    global chai
+    global puff
+    global mas_puri
+    global nippat
+    global bun_sam
     global rupees
-    if Uru_Sword == False:
+    if nippat == False:
         if rupees > 500:
             rupees = rupees - 500
-            L_shop_swords_sword4 = Label(frame_shop_swords_no, text="You now have Uru_Sword\n"
+            L_cans_sword4 = Label(frame_cans_no, text="You now have nippat\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_swords_sword4.pack()
-            Iron_Sword = False
-            Mythril_Sword = False
-            Orichalium_Sword = False
-            Uru_Sword = True
-            Adamantia_Sword = False
+            L_cans_sword4.pack()
+            chai = False
+            puff = False
+            mas_puri = False
+            nippat = True
+            bun_sam = False
 
         else:
-            L_shop_swords_sword4 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+            L_cans_sword4 = Label(frame_cans_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_swords_sword4.pack()
+            L_cans_sword4.pack()
     else:
-        L_shop_swords_sword4 = Label(
-            frame_shop_swords_no, text="You already have Uru_Sword")
-        L_shop_swords_sword4.pack()
+        L_cans_sword4 = Label(
+            frame_cans_no, text="You already have nippat")
+        L_cans_sword4.pack()
 
 
-def shop_sword_sword5():
-    global Iron_Sword
-    global Mythril_Sword
-    global Orichalium_Sword
-    global Uru_Sword
-    global Adamantia_Sword
+def can_sword5():
+    global chai
+    global puff
+    global mas_puri
+    global nippat
+    global bun_sam
     global rupees
-    if Adamantia_Sword == False:
+    if bun_sam == False:
         if rupees > 600:
             rupees = rupees - 600
-            L_shop_swords_sword5 = Label(frame_shop_swords_no, text="You now have Adamantia_Sword\n"
+            L_cans_sword5 = Label(frame_cans_no, text="You now have bun_sam\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_swords_sword5.pack()
-            Iron_Sword = False
-            Mythril_Sword = False
-            Orichalium_Sword = False
-            Uru_Sword = False
-            Adamantia_Sword = True
+            L_cans_sword5.pack()
+            chai = False
+            puff = False
+            mas_puri = False
+            nippat = False
+            bun_sam = True
 
         else:
-            L_shop_swords_sword5 = Label(frame_shop_swords_no, text="You don't have enough rupees.\n"
+            L_cans_sword5 = Label(frame_cans_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_swords_sword5.pack()
+            L_cans_sword5.pack()
     else:
-        L_shop_swords_sword5 = Label(
-            frame_shop_swords_no, text="You already have Adamantia_Sword")
-        L_shop_swords_sword5.pack()
+        L_cans_sword5 = Label(
+            frame_cans_no, text="You already have bun_sam")
+        L_cans_sword5.pack()
 
 
-def shop_sword_to_main():
-    frame_shop_swords_no.destroy()
+def can_to_main():
+    frame_cans_no.destroy()
     shop()
 
 
@@ -747,11 +747,11 @@ def shop_exit():
 
 def shop():
     global rupees
-    global Iron_Sword
-    global Mythril_Sword
-    global Orichalium_Sword
-    global Uru_Sword
-    global Adamantia_Sword
+    global chai
+    global puff
+    global mas_puri
+    global nippat
+    global bun_sam
     global Iron_Armour
     global Mythril_Armour
     global Orichalium_Armour
@@ -770,9 +770,9 @@ def shop():
     B_shop_pixel = Button(
         frame_shop_1, text="Pixel Food Court", command=lambda: shop_pixel())
     B_shop_pixel.pack()
-    B_Shop_Sword = Button(frame_shop_1, text="Sword",
-                          command=lambda: shop_sword())
-    B_Shop_Sword.pack()
+    B_can = Button(frame_shop_1, text="4th & 5th Floor Canteen",
+                          command=lambda: can())
+    B_can.pack()
     B_Shop_Armor = Button(frame_shop_1, text="Armor",
                           command=lambda: shop_armor())
     B_Shop_Armor.pack()
@@ -956,19 +956,19 @@ def monster_attack_1():
     L_monster_attack_1.pack()
     userattack = random.randint(40, 70)
     opp_hp = opp_hp - userattack
-    if Iron_Sword == True:
+    if chai == True:
         opp_hp = opp_hp - 20
 
-    elif Mythril_Sword == True:
+    elif puff == True:
         opp_hp = opp_hp - 30
 
-    elif Orichalium_Sword == True:
+    elif mas_puri == True:
         opp_hp = opp_hp - 40
 
-    elif Uru_Sword == True:
+    elif nippat == True:
         opp_hp = opp_hp - 50
 
-    elif Adamantia_Sword == True:
+    elif bun_sam == True:
         opp_hp = opp_hp - 60
 
     if opp_hp > 0:
