@@ -269,26 +269,26 @@ def can():
     frame_can.pack()
     if chai:
         L_can_owned = Label(
-            frame_can, text="Right now, you have chai")
+            frame_can, text="Right now, you have the Chai Dagger")
         L_can_owned.pack()
     elif puff:
         L_can_owned = Label(
-            frame_can, text="Right now you have puff ")
+            frame_can, text="Right now you have a vial of Puff Corn Poison")
         L_can_owned.pack()
     elif mas_puri:
         L_can_owned = Label(
-            frame_can, text="Right now you have mas_puri")
+            frame_can, text="Right now you have the Masala Puri Mallet")
         L_can_owned.pack()
     elif nippat:
         L_can_owned = Label(
-            frame_can, text="Right now you have nippat ")
+            frame_can, text="Right now you have the Nippat Nunchucks")
         L_can_owned.pack()
     elif bun_sam:
         L_can_owned = Label(
-            frame_can, text="Right now you have bun_sam ")
+            frame_can, text="Right now you have the Bun Samosa BattleAxe")
         L_can_owned.pack()
-    L_can_intro = Label(frame_can, text="We have 5 types of swords..\n"
-                                                      "chai, puff, mas_puri, nippat and bun_sam\n"
+    L_can_intro = Label(frame_can, text="We have 5 items..\n"
+                                                      "Chai Dagger, Puff Corn Poison, Masala Puri Mallet, Nippat Nunchuks and Bun Samosa BattleAxe\n"
                                                       "Would you like to know more about them?\n")
     L_can_intro.pack()
     B_can_Y = Button(frame_can, text="Yes",
@@ -304,11 +304,17 @@ def can_yes():
     frame_can.destroy()
     frame_can_yes = Frame(root)
     frame_can_yes.pack()
-    L_can_Y_info = Label(frame_can_yes, text="chai costs 200 rupees and increases your attack by 20\n"
-                                "puff costs 300 rupees and increases your attack by 30\n"
-                                "mas_puri costs 400 rupees and increases your attack by 40\n"
-                                "nippat costs 500 rupees and increases your attack by 50\n"
-                                "bun_sam costs 600 rupees and increases your attack by 60\n")
+    L_can_Y_info = Label(frame_can_yes, text="Chai Dagger: \n"
+                                             "Cost: 200-----------Damage: 20 HP\n\n"
+                                             "Puff Corn Poison: \n"
+                                             "Cost: 300-----------Damage: 30 HP\n\n"
+                                             "Masala Puri : \n"
+                                             "Cost: 400-----------Damage: 40 HP\n"
+                                             "Nippat Nunchucks: \n"    
+                                             "Cost: 500-----------Damage: 50 HP\n"                            
+                                             "Bun Samosa BattleAxe: \n"
+                                             "Cost: 600-----------Damage: 60HP")
+                                
     L_can_Y_info.pack()
 
     B_can_Yes = Button(
@@ -330,26 +336,26 @@ def can_no():
                             text="Which sword would you like to buy?\n")
     L_cans_N.pack()
     B_cans_Sword1 = Button(
-        frame_cans_no, text="chai", command=lambda: can_sword1())
+        frame_cans_no, text="Chai Dagger", command=lambda: can1())
     B_cans_Sword1.pack()
     B_cans_Sword2 = Button(
-        frame_cans_no, text="puff", command=lambda: can_sword2())
+        frame_cans_no, text="Puff Corn Poison", command=lambda: can2())
     B_cans_Sword2.pack()
     B_cans_Sword3 = Button(
-        frame_cans_no, text="mas_puri", command=lambda: can_sword3())
+        frame_cans_no, text="Masala Puri Mallet", command=lambda: can3())
     B_cans_Sword3.pack()
     B_cans_Sword4 = Button(
-        frame_cans_no, text="nippat", command=lambda: can_sword4())
+        frame_cans_no, text="Nippat Nunchuks", command=lambda: can4())
     B_cans_Sword4.pack()
     B_cans_Sword5 = Button(
-        frame_cans_no, text="bun_sam", command=lambda: can_sword5())
+        frame_cans_no, text="Bun Samosa BattleAxe", command=lambda: can5())
     B_cans_Sword5.pack()
     B_cans_back = Button(
         frame_cans_no, text="back", command=lambda: can_to_main())
     B_cans_back.pack(side=BOTTOM)
 
 
-def can_sword1():
+def can1():
     global chai
     global puff
     global mas_puri
@@ -359,7 +365,7 @@ def can_sword1():
     if chai == False:
         if rupees > 200:
             rupees = rupees - 200
-            L_cans_sword1 = Label(frame_cans_no, text="You now have chai\n"
+            L_cans_sword1 = Label(frame_cans_no, text="You now have the Chai Dagger\n"
                                                                     f"You now have {rupees} rupees")
             L_cans_sword1.pack()
             chai = True
@@ -374,11 +380,11 @@ def can_sword1():
             L_cans_sword1.pack()
     else:
         L_cans_sword1 = Label(
-            frame_cans_no, text="You already have chai")
+            frame_cans_no, text="You already have the Chai Dagger.")
         L_cans_sword1.pack()
 
 
-def can_sword2():
+def can2():
     global chai
     global puff
     global mas_puri
@@ -388,7 +394,7 @@ def can_sword2():
     if puff == False:
         if rupees > 300:
             rupees = rupees - 300
-            L_cans_sword2 = Label(frame_cans_no, text="You now have puff\n"
+            L_cans_sword2 = Label(frame_cans_no, text="You now have a vial of Puff Corn Poison\n"
                                                                     f"You now have {rupees} rupees")
             L_cans_sword2.pack()
             chai = False
@@ -401,11 +407,11 @@ def can_sword2():
             L_cans_sword2.pack()
     else:
         L_cans_sword2 = Label(
-            frame_cans_no, text="You already have puff")
+            frame_cans_no, text="You already have Puff Corn Poison")
         L_cans_sword2.pack()
 
 
-def can_sword3():
+def can3():
     global chai
     global puff
     global mas_puri
@@ -415,7 +421,7 @@ def can_sword3():
     if mas_puri == False:
         if rupees > 400:
             rupees = rupees - 400
-            L_cans_sword3 = Label(frame_cans_no, text="You now have mas_puri\n"
+            L_cans_sword3 = Label(frame_cans_no, text="You now have the Masala Puri Mallet\n"
                                                                     f"You now have {rupees} rupees")
             L_cans_sword3.pack()
             chai = False
@@ -428,11 +434,11 @@ def can_sword3():
             L_cans_sword3.pack()
     else:
         L_cans_sword3 = Label(
-            frame_cans_no, text="You already have mas_puri")
+            frame_cans_no, text="You already have the Masala Puri Mallet")
         L_cans_sword3.pack()
 
 
-def can_sword4():
+def can4():
     global chai
     global puff
     global mas_puri
@@ -442,7 +448,7 @@ def can_sword4():
     if nippat == False:
         if rupees > 500:
             rupees = rupees - 500
-            L_cans_sword4 = Label(frame_cans_no, text="You now have nippat\n"
+            L_cans_sword4 = Label(frame_cans_no, text="You now have the Nippat Nunchucks.\n"
                                                                     f"You now have {rupees} rupees")
             L_cans_sword4.pack()
             chai = False
@@ -457,11 +463,11 @@ def can_sword4():
             L_cans_sword4.pack()
     else:
         L_cans_sword4 = Label(
-            frame_cans_no, text="You already have nippat")
+            frame_cans_no, text="You already have the Nippat Nunchucks.")
         L_cans_sword4.pack()
 
 
-def can_sword5():
+def can5():
     global chai
     global puff
     global mas_puri
@@ -471,7 +477,7 @@ def can_sword5():
     if bun_sam == False:
         if rupees > 600:
             rupees = rupees - 600
-            L_cans_sword5 = Label(frame_cans_no, text="You now have bun_sam\n"
+            L_cans_sword5 = Label(frame_cans_no, text="You now have the Bun Samosa BattleAxe\n"
                                                                     f"You now have {rupees} rupees")
             L_cans_sword5.pack()
             chai = False
@@ -486,7 +492,7 @@ def can_sword5():
             L_cans_sword5.pack()
     else:
         L_cans_sword5 = Label(
-            frame_cans_no, text="You already have bun_sam")
+            frame_cans_no, text="You already have the Bun Samosa BattleAxe.")
         L_cans_sword5.pack()
 
 
@@ -763,17 +769,17 @@ def shop():
     frame_shop_1 = Frame(root)
     frame_shop_1.pack()
     L_Shop_Wel = Label(
-        frame_shop_1, text="Ah, break time!..\nWhat would you like to eat today?\n")
+        frame_shop_1, text="Ah, break time...\nWhat where would you like to go to replenish your inventory today?\n")
     L_Shop_Wel.pack()
     # store1 variable to ask user what necessity do they need to buy
     # store1 = input("1=Potion, 2=Sword, 3=Armor, 4=Exit Store\n")
     B_shop_pixel = Button(
-        frame_shop_1, text="Pixel Food Court", command=lambda: shop_pixel())
+        frame_shop_1, text="Pixel's Food and Ale ", command=lambda: shop_pixel())
     B_shop_pixel.pack()
-    B_can = Button(frame_shop_1, text="4th & 5th Floor Canteen",
+    B_can = Button(frame_shop_1, text="Armoury of the 4th and 5th",
                           command=lambda: can())
     B_can.pack()
-    B_Shop_Armor = Button(frame_shop_1, text="Armor",
+    B_Shop_Armor = Button(frame_shop_1, text="Stationary Bazaar",
                           command=lambda: shop_armor())
     B_Shop_Armor.pack()
     B_Shop_ExitStore = Button(
