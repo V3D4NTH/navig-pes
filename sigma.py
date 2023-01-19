@@ -333,7 +333,7 @@ def can_no():
     frame_cans_no = Frame(root)
     frame_cans_no.pack()
     L_cans_N = Label(frame_cans_no,
-                            text="Which sword would you like to buy?\n")
+                            text="Which weapon would you like to prurchase?\n Choose wisely. These instruments will aid you in your conquest.")
     L_cans_N.pack()
     B_cans_Sword1 = Button(
         frame_cans_no, text="Chai Dagger", command=lambda: can1())
@@ -769,7 +769,7 @@ def shop():
     frame_shop_1 = Frame(root)
     frame_shop_1.pack()
     L_Shop_Wel = Label(
-        frame_shop_1, text="Ah, break time...\nWhat where would you like to go to replenish your inventory today?\n")
+        frame_shop_1, text="Ah, break time...\nWhere would you like to go to replenish your inventory today?\n")
     L_Shop_Wel.pack()
     # store1 variable to ask user what necessity do they need to buy
     # store1 = input("1=Potion, 2=Sword, 3=Armor, 4=Exit Store\n")
