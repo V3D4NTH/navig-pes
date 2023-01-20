@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import ImageTk, Image
 import random
 
-
+monster=''
 rupees = 600  # used in store to buy items
 hp = 100  # user's hp
 opp_hp = 100  # monster's hp
@@ -25,19 +25,38 @@ which_potion = 0
 
 
 def get_room():
-    room = ("monster", "shop", "treasure box", "monster", "shop")
-    inside_room = random.choice(room)
+    # room = ("isa1", "isa2", "isa3", "isa4", "isa5", "esa, treasure", "shop", "shop")
+    # inside_room = random.choice(room)
+    
+    for i in range(7):
+        i+=1
+        break
     # print(inside_room)
-    if inside_room == "shop":
+    if i==0:
         frame1.destroy()
-        shop()
-    elif inside_room == "treasure box":
+        isa1()
+    elif i==1:
+        frame1.destroy()
+        isa2()
+    elif i==2:
+        frame1.destroy()
+        isa3()
+    elif i==3:
+        frame1.destroy()
+        isa4()
+    elif i==4:
+        frame1.destroy()
+        isa5()
+    elif i==5:
+        frame1.destroy()
+        esa()
+    elif i==6:
         frame1.destroy()
         treasure_box()
-    elif inside_room == "monster":
+    elif i==7:
         frame1.destroy()
-        get_monster()
-
+        shop()
+   
 
 # treasure box room
 def treasure_box():
@@ -811,6 +830,7 @@ def monster_potion_1_chole():
 
 
 def you_died():
+    global monster
     frame_you_died = Frame(root)
     frame_you_died.pack()
     L_You_Died = Label(frame_monster_attack_1, text=f"Wow! Absolutely stellar. After your abysmal performance at {monster}, \nyou now have backlog hanging over your head.\nYou have enough to extend your stay at PES for the semester by a few weeks.\n Who knew you loved the university enough to flunk your exams! \n"
@@ -836,6 +856,7 @@ def quit():
 
 
 def monster_counterattack_1():
+    global monster
     global hp
     L_monster_counterattack_1 = Label(
         frame_monster_attack_1, text=f"Now {monster} will take it's turn.\n")
@@ -880,6 +901,7 @@ def monster_counter_to_attack():
 
 def monster_attack_1():
     global opp_hp
+    global monster
     global frame_monster_attack_1
     frame_monster_1.destroy()
     frame_monster_attack_1 = Frame(root)
@@ -976,8 +998,8 @@ def fight_monster_to_monster_potion():
 
 
 def fight_monster():
-    global monster
     global opp_hp
+    global monster
     global hp
     global frame_fight_monster
     frame_fight_monster = Frame(root)
@@ -994,40 +1016,65 @@ def fight_monster():
     B_monster_potion_1.pack()
 
 
-def get_monster():
+def isa1():
     global m
-    global opp_hp
     global monster
+    global opp_hp
+    monster="ISA 1"
     global frame_monster_1
     frame_monster_1 = Frame(root)
     frame_monster_1.pack()
     L_monster_Wel = Label(
         frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
     L_monster_Wel.pack()
-    monsters = ("ISA 1", "ISA 2", "ISA 3", "ISA 4", "ISA 5", "ESA")
-    monster = random.choice(monsters)
-    # print(monster)
+   
     opp_hp = 100
     if monster == "ISA 1":
-        m = 1
+      m = 1
         # monster 1
         # Attack in range of 0-10
-        L_m1_intro = Label(frame_monster_1, text="You have to face ISA 1.\n Ah, the first. You always remember your first.\n ISA, I mean! You always remember your first ISA. \n That's obviously what I meant."
+      L_m1_intro = Label(frame_monster_1, text="You have to face ISA 1.\n Ah, the first. You always remember your first.\n ISA, I mean! You always remember your first ISA. \n That's obviously what I meant."
                                                  "You've made your way to the Mech Block. Sat at your terminal.\n The test has started! Good luck!")
-        L_m1_intro.pack()
-        fight_monster()
+      L_m1_intro.pack()
+      fight_monster()
+
         # opp_att = random.randint(0, 10)
 
+def isa2():
+    global m
+    global opp_hp
+    global monster
+    monster= "ISA 2"
+    global frame_monster_1
+    frame_monster_1 = Frame(root)
+    frame_monster_1.pack()
+    L_monster_Wel = Label(
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+    L_monster_Wel.pack()
+    opp_hp = 100
     if monster == "ISA 2":
-        m = 2
+      m = 2
         # monster 2
         # Attack in range of 10-20
-        L_m2_intro = Label(frame_monster_1, text="You have to face ISA 2\n"
+      L_m2_intro = Label(frame_monster_1, text="You have to face ISA 2\n"
                                                  "The match starts. You get the first chance\n")
-        L_m2_intro.pack()
-        fight_monster()
+      L_m2_intro.pack()
+      fight_monster()
         # opp_att = random.randint(10, 20)
 
+def isa3():
+    global m
+    global opp_hp
+    global monster
+    monster= "ISA 3"
+    global frame_monster_1
+    frame_monster_1 = Frame(root)
+    frame_monster_1.pack()
+    L_monster_Wel = Label(
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+    L_monster_Wel.pack()
+   
+    opp_hp = 100
     if monster == "ISA 3":
         m = 3
         # monster 3
@@ -1037,7 +1084,19 @@ def get_monster():
         L_m3_intro.pack()
         fight_monster()
         # opp_att = random.randint(20, 30)
-
+def isa4():
+    global m
+    global opp_hp
+    global monster
+    monster= "ISA 4"
+    global frame_monster_1
+    frame_monster_1 = Frame(root)
+    frame_monster_1.pack()
+    L_monster_Wel = Label(
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+    L_monster_Wel.pack()
+   
+    opp_hp = 100
     if monster == "ISA 4":
         m = 4
         # monster 4
@@ -1047,7 +1106,19 @@ def get_monster():
         L_m4_intro.pack()
         fight_monster()
         # opp_att = random.randint(30, 40)
-
+def isa5():
+    global m
+    global opp_hp
+    global monster
+    monster= "ISA 5"
+    global frame_monster_1
+    frame_monster_1 = Frame(root)
+    frame_monster_1.pack()
+    L_monster_Wel = Label(
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+    L_monster_Wel.pack()
+   
+    opp_hp = 100
     if monster == "ISA 5":
         m = 5
         # monster 5
@@ -1057,7 +1128,19 @@ def get_monster():
         L_m5_intro.pack()
         fight_monster()
         # opp_att = random.randint(40, 50)
-
+def esa():
+    global m
+    global opp_hp
+    global monster
+    monster= "ESA"
+    global frame_monster_1
+    frame_monster_1 = Frame(root)
+    frame_monster_1.pack()
+    L_monster_Wel = Label(
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+    L_monster_Wel.pack()
+   
+    opp_hp = 100
     if monster == "ESA":
         m = 6
         # monster 6
@@ -1083,7 +1166,7 @@ def gate():
 
 def gate_exit():
     frame_gate.destroy()
-    get_room()
+    isa1()
 
 
 root = Tk()
