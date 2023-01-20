@@ -12,9 +12,9 @@ puff = False  # increases attack by 30
 mas_puri = False  # increases attack by 40
 nippat = False  # increases attack by 50
 bun_sam = False  # increases attack by 60
-Iron_Armour = False  # decreases opp_att by 10
-Mythril_Armour = False  # decreases opp_att by 20
-Orichalium_Armour = False  # decreases opp_att by 30
+blubook = False  # decreases opp_att by 10
+gonemad = False  # decreases opp_att by 20
+printo = False  # decreases opp_att by 30
 Uru_Armour = False  # decreases opp_att by 50
 Adamantia_Armour = False  # decreases opp_att by 60
 pixel = 1  # increases hp by 30. Cost=300 rupees
@@ -501,245 +501,245 @@ def can_to_main():
     shop()
 
 
-def shop_armor():
-    global frame_shop_armor
-    global Iron_Armour
-    global Mythril_Armour
-    global Orichalium_Armour
+def stat():
+    global frame_stat
+    global blubook
+    global gonemad
+    global printo
     global Uru_Armour
     global Adamantia_Armour
     frame_shop_1.destroy()
-    frame_shop_armor = Frame(root)
-    frame_shop_armor.pack()
-    if Iron_Armour:
-        L_Shop_armor_owned = Label(
-            frame_shop_armor, text="Right now, you have Iron_Armour")
-        L_Shop_armor_owned.pack()
-    elif Mythril_Armour:
-        L_Shop_armor_owned = Label(
-            frame_shop_armor, text="Right now you have Mythril_Armour")
-        L_Shop_armor_owned.pack()
-    elif Orichalium_Armour:
-        L_Shop_armor_owned = Label(
-            frame_shop_armor, text="Right now you have Orichalium_Armour")
-        L_Shop_armor_owned.pack()
+    frame_stat = Frame(root)
+    frame_stat.pack()
+    if blubook:
+        L_stat_owned = Label(
+            frame_stat, text="Right now, you have the Book of Blue")
+        L_stat_owned.pack()
+    elif gonemad:
+        L_stat_owned = Label(
+            frame_stat, text="Right now you have the Gone Mad Armour")
+        L_stat_owned.pack()
+    elif printo:
+        L_stat_owned = Label(
+            frame_stat, text="Right now you have the Prinout Power Armour")
+        L_stat_owned.pack()
     elif Uru_Armour:
-        L_Shop_armor_owned = Label(
-            frame_shop_armor, text="Right now you have Uru_Armour")
-        L_Shop_armor_owned.pack()
+        L_stat_owned = Label(
+            frame_stat, text="Right now you have Uru_Armour")
+        L_stat_owned.pack()
     elif Adamantia_Armour:
-        L_Shop_armor_owned = Label(
-            frame_shop_armor, text="Right now you have Adamantia_Armour")
-        L_Shop_armor_owned.pack()
-    L_Shop_armor_intro = Label(frame_shop_armor, text="We have 5 types of armors..\n"
-                                                      "Iron_Armour, Mythril_Armour, Orichalium_Armour, Uru_Armour and Adamantia_Armour\n"
+        L_stat_owned = Label(
+            frame_stat, text="Right now you have Adamantia_Armour")
+        L_stat_owned.pack()
+    L_stat_intro = Label(frame_stat, text="Rations! Get your rations!\n We have 5 types of armors..\n"
+                                                      "The Book of Blue, the Gone Mad Armour, the Prinout Power Armour, Uru_Armour and Adamantia_Armour\n"
                                                       "Would you like to know more about them?\n")
-    L_Shop_armor_intro.pack()
-    B_Shop_armor_Y = Button(frame_shop_armor, text="Yes",
-                            command=lambda: shop_armor_yes())
-    B_Shop_armor_N = Button(frame_shop_armor, text="No",
-                            command=lambda: shop_armor_no())
-    B_Shop_armor_Y.pack()
-    B_Shop_armor_N.pack()
+    L_stat_intro.pack()
+    B_stat_Y = Button(frame_stat, text="Yes",
+                            command=lambda: stat_yes())
+    B_stat_N = Button(frame_stat, text="No",
+                            command=lambda: stat_no())
+    B_stat_Y.pack()
+    B_stat_N.pack()
 
 
-def shop_armor_yes():
-    global frame_shop_armor_yes
-    frame_shop_armor.destroy()
-    frame_shop_armor_yes = Frame(root)
-    frame_shop_armor_yes.pack()
-    L_Shop_armor_Y_info = Label(frame_shop_armor_yes, text="Iron_Armour costs 200 rupees and increases your attack by 20\n"
-                                "Mythril_Armour costs 300 rupees and increases your attack by 30\n"
-                                "Orichalium_Armour costs 400 rupees and increases your attack by 40\n"
+def stat_yes():
+    global frame_stat_yes
+    frame_stat.destroy()
+    frame_stat_yes = Frame(root)
+    frame_stat_yes.pack()
+    L_stat_Y_info = Label(frame_stat_yes, text="The Book of Blue costs 200 rupees and increases your attack by 20\n"
+                                "Gone Mad Armour costs 300 rupees and increases your attack by 30\n"
+                                "The Printout Power Armour costs 400 rupees and increases your attack by 40\n"
                                 "Uru_Armour costs 500 rupees and increases your attack by 50\n"
                                 "Adamantia_Armour costs 600 rupees and increases your attack by 60\n")
-    L_Shop_armor_Y_info.pack()
+    L_stat_Y_info.pack()
 
-    B_Shop_armor_Yes = Button(
-        frame_shop_armor_yes, text="Next", command=lambda: shop_armor_yestono())
-    B_Shop_armor_Yes.pack()
-
-
-def shop_armor_yestono():
-    frame_shop_armor_yes.destroy()
-    shop_armor_no()
+    B_stat_Yes = Button(
+        frame_stat_yes, text="Next", command=lambda: stat_yestono())
+    B_stat_Yes.pack()
 
 
-def shop_armor_no():
-    global frame_shop_armors_no
-    frame_shop_armor.destroy()
-    frame_shop_armors_no = Frame(root)
-    frame_shop_armors_no.pack()
-    L_Shop_armors_N = Label(frame_shop_armors_no,
-                            text="Which armor would you like to buy?\n")
-    L_Shop_armors_N.pack()
-    B_Shop_armors_armor1 = Button(
-        frame_shop_armors_no, text="Iron_Armour", command=lambda: shop_armor_armor1())
-    B_Shop_armors_armor1.pack()
-    B_Shop_armors_armor2 = Button(
-        frame_shop_armors_no, text="Mythril_Armour", command=lambda: shop_armor_armor2())
-    B_Shop_armors_armor2.pack()
-    B_Shop_armors_armor3 = Button(
-        frame_shop_armors_no, text="Orichalium_Armour", command=lambda: shop_armor_armor3())
-    B_Shop_armors_armor3.pack()
-    B_Shop_armors_armor4 = Button(
-        frame_shop_armors_no, text="Uru_Armour", command=lambda: shop_armor_armor4())
-    B_Shop_armors_armor4.pack()
-    B_Shop_armors_armor5 = Button(
-        frame_shop_armors_no, text="Adamantia_Armour", command=lambda: shop_armor_armor5())
-    B_Shop_armors_armor5.pack()
-    B_Shop_armors_back = Button(
-        frame_shop_armors_no, text="back", command=lambda: shop_armor_to_main())
-    B_Shop_armors_back.pack(side=BOTTOM)
+def stat_yestono():
+    frame_stat_yes.destroy()
+    stat_no()
 
 
-def shop_armor_armor1():
-    global Iron_Armour
-    global Mythril_Armour
-    global Orichalium_Armour
+def stat_no():
+    global frame_stats_no
+    frame_stat.destroy()
+    frame_stats_no = Frame(root)
+    frame_stats_no.pack()
+    L_stats_N = Label(frame_stats_no,
+                            text="What would you like to buy?\n")
+    L_stats_N.pack()
+    B_stats_armor1 = Button(
+        frame_stats_no, text="The Book of Blue", command=lambda: stat_armor1())
+    B_stats_armor1.pack()
+    B_stats_armor2 = Button(
+        frame_stats_no, text="The Gone Mad Armour", command=lambda: stat_armor2())
+    B_stats_armor2.pack()
+    B_stats_armor3 = Button(
+        frame_stats_no, text="THe Printout Power Armour", command=lambda: stat_armor3())
+    B_stats_armor3.pack()
+    B_stats_armor4 = Button(
+        frame_stats_no, text="Uru_Armour", command=lambda: stat_armor4())
+    B_stats_armor4.pack()
+    B_stats_armor5 = Button(
+        frame_stats_no, text="Adamantia_Armour", command=lambda: stat_armor5())
+    B_stats_armor5.pack()
+    B_stats_back = Button(
+        frame_stats_no, text="back", command=lambda: stat_to_main())
+    B_stats_back.pack(side=BOTTOM)
+
+
+def stat_armor1():
+    global blubook
+    global gonemad
+    global printo
     global Uru_Armour
     global Adamantia_Armour
     global rupees
-    if Iron_Armour == False:
+    if blubook == False:
         if rupees > 200:
             rupees = rupees - 200
-            L_shop_armors_armor1 = Label(frame_shop_armors_no, text="You now have Iron_Armour\n"
+            L_stats_armor1 = Label(frame_stats_no, text="You now have the Blue of Book\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_armors_armor1.pack()
-            Iron_Armour = True
-            Mythril_Armour = False
-            Orichalium_Armour = False
+            L_stats_armor1.pack()
+            blubook = True
+            gonemad = False
+            printo = False
             Uru_Armour = False
             Adamantia_Armour = False
 
         else:
-            L_shop_armors_armor1 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+            L_stats_armor1 = Label(frame_stats_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_armors_armor1.pack()
+            L_stats_armor1.pack()
     else:
-        L_shop_armors_armor1 = Label(
-            frame_shop_armors_no, text="You already have Iron_Armour")
-        L_shop_armors_armor1.pack()
+        L_stats_armor1 = Label(
+            frame_stats_no, text="You're a greedy fellow. You already have the Book of Blue.")
+        L_stats_armor1.pack()
 
 
-def shop_armor_armor2():
-    global Iron_Armour
-    global Mythril_Armour
-    global Orichalium_Armour
+def stat_armor2():
+    global blubook
+    global gonemad
+    global printo
     global Uru_Armour
     global Adamantia_Armour
     global rupees
-    if Mythril_Armour == False:
+    if gonemad == False:
         if rupees > 300:
             rupees = rupees - 300
-            L_shop_armors_armor2 = Label(frame_shop_armors_no, text="You now have Mythril_Armour\n"
+            L_stats_armor2 = Label(frame_stats_no, text="You now have the Gone Mad Armour\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_armors_armor2.pack()
-            Iron_Armour = False
-            Mythril_Armour = True
-            Orichalium_Armour = False
+            L_stats_armor2.pack()
+            blubook = False
+            gonemad = True
+            printo = False
             Uru_Armour = False
             Adamantia_Armour = False
 
         else:
-            L_shop_armors_armor2 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+            L_stats_armor2 = Label(frame_stats_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_armors_armor2.pack()
+            L_stats_armor2.pack()
     else:
-        L_shop_armors_armor2 = Label(
-            frame_shop_armors_no, text="You already have Mythril_Armour")
-        L_shop_armors_armor2.pack()
+        L_stats_armor2 = Label(
+            frame_stats_no, text="You already have the Gone Mad Armour. But I get it. It's so nice you want it twice.")
+        L_stats_armor2.pack()
 
 
-def shop_armor_armor3():
-    global Iron_Armour
-    global Mythril_Armour
-    global Orichalium_Armour
+def stat_armor3():
+    global blubook
+    global gonemad
+    global printo
     global Uru_Armour
     global Adamantia_Armour
     global rupees
-    if Orichalium_Armour == False:
+    if printo == False:
         if rupees > 400:
             rupees = rupees - 400
-            L_shop_armors_armor3 = Label(frame_shop_armors_no, text="You now have Orichalium_Armour\n"
+            L_stats_armor3 = Label(frame_stats_no, text="You now have the Printout Power Armour.\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_armors_armor3.pack()
-            Iron_Armour = False
-            Mythril_Armour = False
-            Orichalium_Armour = True
+            L_stats_armor3.pack()
+            blubook = False
+            gonemad = False
+            printo = True
             Uru_Armour = False
             Adamantia_Armour = False
 
         else:
-            L_shop_armors_armor3 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+            L_stats_armor3 = Label(frame_stats_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_armors_armor3.pack()
+            L_stats_armor3.pack()
     else:
-        L_shop_armors_armor3 = Label(
-            frame_shop_armors_no, text="You already have Orichalium_Armour")
-        L_shop_armors_armor3.pack()
+        L_stats_armor3 = Label(
+            frame_stats_no, text="What, you egg! Nothing can stab you\n because you already have the Prinout Power Armour")
+        L_stats_armor3.pack()
 
 
-def shop_armor_armor4():
-    global Iron_Armour
-    global Mythril_Armour
-    global Orichalium_Armour
+def stat_armor4():
+    global blubook
+    global gonemad
+    global printo
     global Uru_Armour
     global Adamantia_Armour
     global rupees
     if Uru_Armour == False:
         if rupees > 500:
             rupees = rupees - 500
-            L_shop_armors_armor4 = Label(frame_shop_armors_no, text="You now have Uru_Armour\n"
+            L_stats_armor4 = Label(frame_stats_no, text="You now have Uru_Armour\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_armors_armor4.pack()
-            Iron_Armour = False
-            Mythril_Armour = False
-            Orichalium_Armour = False
+            L_stats_armor4.pack()
+            blubook = False
+            gonemad = False
+            printo = False
             Uru_Armour = True
             Adamantia_Armour = False
 
         else:
-            L_shop_armors_armor4 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+            L_stats_armor4 = Label(frame_stats_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_armors_armor4.pack()
+            L_stats_armor4.pack()
     else:
-        L_shop_armors_armor4 = Label(
-            frame_shop_armors_no, text="You already have Uru_Armour")
-        L_shop_armors_armor4.pack()
+        L_stats_armor4 = Label(
+            frame_stats_no, text="You already have Uru_Armour")
+        L_stats_armor4.pack()
 
 
-def shop_armor_armor5():
-    global Iron_Armour
-    global Mythril_Armour
-    global Orichalium_Armour
+def stat_armor5():
+    global blubook
+    global gonemad
+    global printo
     global Uru_Armour
     global Adamantia_Armour
     global rupees
     if Adamantia_Armour == False:
         if rupees > 600:
             rupees = rupees - 600
-            L_shop_armors_armor5 = Label(frame_shop_armors_no, text="You now have Adamantia_Armour\n"
+            L_stats_armor5 = Label(frame_stats_no, text="You now have Adamantia_Armour\n"
                                                                     f"You now have {rupees} rupees")
-            L_shop_armors_armor5.pack()
-            Iron_Armour = False
-            Mythril_Armour = False
-            Orichalium_Armour = False
+            L_stats_armor5.pack()
+            blubook = False
+            gonemad = False
+            printo = False
             Uru_Armour = False
             Adamantia_Armour = True
 
         else:
-            L_shop_armors_armor5 = Label(frame_shop_armors_no, text="You don't have enough rupees.\n"
+            L_stats_armor5 = Label(frame_stats_no, text="You don't have enough rupees.\n"
                                                                     f"You have {rupees} rupees")
-            L_shop_armors_armor5.pack()
+            L_stats_armor5.pack()
     else:
-        L_shop_armors_armor5 = Label(
-            frame_shop_armors_no, text="You already have Adamantia_Armour")
-        L_shop_armors_armor5.pack()
+        L_stats_armor5 = Label(
+            frame_stats_no, text="You already have Adamantia_Armour")
+        L_stats_armor5.pack()
 
 
-def shop_armor_to_main():
-    frame_shop_armors_no.destroy()
+def stat_to_main():
+    frame_stats_no.destroy()
     shop()
 
 
@@ -758,9 +758,9 @@ def shop():
     global mas_puri
     global nippat
     global bun_sam
-    global Iron_Armour
-    global Mythril_Armour
-    global Orichalium_Armour
+    global blubook
+    global gonemad
+    global printo
     global Uru_Armour
     global Adamantia_Armour
     global pixel
@@ -779,9 +779,9 @@ def shop():
     B_can = Button(frame_shop_1, text="Armoury of the 4th and 5th",
                           command=lambda: can())
     B_can.pack()
-    B_Shop_Armor = Button(frame_shop_1, text="Stationary Bazaar",
-                          command=lambda: shop_armor())
-    B_Shop_Armor.pack()
+    B_stat = Button(frame_shop_1, text="Stationary Bazaar",
+                          command=lambda: stat())
+    B_stat.pack()
     B_Shop_ExitStore = Button(
         frame_shop_1, text="Exit Store", command=lambda: shop_exit())
     B_Shop_ExitStore.pack()
@@ -913,11 +913,11 @@ def monster_counterattack_1():
     opp_attack = random.randint(((m - 1) * 10), (m * 10))
     hp = hp - opp_attack
 
-    if Iron_Armour == True:
+    if blubook == True:
         hp = hp + 10
-    elif Mythril_Armour == True:
+    elif gonemad == True:
         hp = hp + 20
-    elif Orichalium_Armour == True:
+    elif print == True:
         hp = hp + 30
     elif Uru_Armour == True:
         hp = hp + 50
@@ -989,7 +989,7 @@ def monster_attack_1():
                                                                      f"Your HP = {hp}\n"
                                                                      f"you defeated {monster}\n"
                                                                      "You have some time to rest.\n"
-                                                                     "Would you like to use a potion?\n")
+                                                                     "Would you like to use eat or drink something?\n")
         L_monster_attack_result.pack()
         B__monster_attack_result_yes = Button(
             frame_monster_attack_1, text="Yes", command=lambda: drink_potion())
