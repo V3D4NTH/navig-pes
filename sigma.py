@@ -1,7 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 import random
-
+i=-1
 monster=''
 rupees = 600  # used in store to buy items
 hp = 100  # user's hp
@@ -27,10 +27,8 @@ which_potion = 0
 def get_room():
     # room = ("isa1", "isa2", "isa3", "isa4", "isa5", "esa, treasure", "shop", "shop")
     # inside_room = random.choice(room)
-    
-    for i in range(7):
-        i+=1
-        break
+    global i
+    i+=1
     # print(inside_room)
     if i==0:
         frame1.destroy()
@@ -1166,7 +1164,7 @@ def gate():
 
 def gate_exit():
     frame_gate.destroy()
-    isa1()
+    get_room()
 
 
 root = Tk()
