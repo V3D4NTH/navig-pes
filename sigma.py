@@ -1016,7 +1016,7 @@ def drink_potion():
     frame_monster_potion_1.pack()
     L_monster_potion_info = Label(frame_monster_potion_1, text=f"Limonata increases your HP by 30\n"
                                   f"Schezwan Noodles increases your HP by 50\n"
-                                  f"Chole BHature increases your HP by 60\n"
+                                  f"Chole Bhature increases your HP by 60\n"
                                   f"Your HP is {hp}\n"
                                   f"You have {pixel} Limonatas,\n"
                                   f"{schezwan} Schezwan Noodles,\n"
