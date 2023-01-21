@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 import random
+
 i=-1
 monster=''
 rupees = 600  # used in store to buy items
@@ -38,22 +39,25 @@ def get_room():
         isa2()
     elif i==2:
         frame1.destroy()
-        isa3()
+        shop()
     elif i==3:
         frame1.destroy()
-        isa4()
+        isa3()
     elif i==4:
         frame1.destroy()
-        isa5()
+        isa4()
     elif i==5:
         frame1.destroy()
-        esa()
+        isa5()
     elif i==6:
-        the_end()
+        frame1.destroy()
+        esa()
     elif i==7:
+        the_end()
+    elif i==8:
         frame1.destroy()
         treasure_box()
-    elif i==8:
+    elif i==9:
         frame1.destroy()
         shop()
    
@@ -1167,7 +1171,7 @@ def the_end():
     global frame_end
     frame_end= Frame(root)
     frame_end.pack()
-    L_end = Label(frame_end, text="\n\n\n\n\n\nCONGRATULATIONS!!!!!! YOU DID IT!! FREEDOM!!!!😭😭 \nYou made it to the end of the semester.\nI thoroughly enjoyed accompanying you in this quest of yours. I wish I could come along with you.\nBut what am I to do? I am just a humble NPC synthesized by my creators,\n Vedanth, Rithvik, and Udit relegated to this digital dimension to serve whosoever enters it. \nGoodbye, friend." )
+    L_end = Label(frame_end, text="\n\n\n\n\n\nCONGRATULATIONS!!!!!! YOU DID IT!! FREEDOM!!!!😭😭 \nYou made it to the end of the semester.\nI thoroughly enjoyed accompanying you in this quest of yours. I wish I could come along with you.\nBut what am I to do? I am just a humble NPC synthesized by my creators,\n Vedanth, Rithvik, and Udit relegated to this digital dimension to serve whosoever enters it. \n I will remember you. Take care. Goodbye, friend. ", font=('Times New Roman', 10) )
     L_end.pack()
     B_end = Button(frame_end,
                         text="Quit", command=lambda: end_quit())
@@ -1195,10 +1199,32 @@ def gate_exit():
 root = Tk()
 root.title("Navigating PES")
 frame1 = Frame(root, padx=1, pady=1)
-frame1.pack(padx=10, pady=10)
-
+frame1.pack(padx=50, pady=50)
 root.geometry("500x500")
-label = Label(frame1, text="\n\n\nGreetings, freshman! \nWelcome to PESUECC!\n\n\n Students have walked through its hallowed gates in pursuit of\n knowledge since 2005. However, this knowledge comes at a price!\n You must face the 5 ISAs.\n Each increasing in difficulty, the ISAs will be a\n test of your mental endurance over the stretch of this semester.\n After conquering the ISAs, your journey does not end for there is the ESA.\nThe dreaded ESA! A 3 hour written test, \ncombining everything you've learnt over the semester,\n vanquishing it is a result of all your hardwork, dedication and sleep sacrificed.\nOne rule, tough! You cannot continue the game if you string together enough bad performanes to accumulate backlog. \n In between each test that you write there will be\n fixed intervals where you can replenish your inventory.\n\n\n The 3 centres of trade and commerce in PESUECC are:\ni) Pixel's Food and Ale: Food and drink to increase your HP can be purchased here.\nii) Armoury of the 4th and 5th: Weapons to battle the tests can be purchased here.\n     iii) Stationary Bazaar: The holy Book of Blue lies here. Armours can also be purchased.\n\n\n\n The road that lies ahead of you is long and hard. Quite literally.\nIt's a long walk from the gate to the class. Get moving.\n To begin, let's make our way to the main block.\n ")
+root['bg']='sienna'
+frame2 = Frame(root, width=1, height=1)
+frame2.pack()
+frame2.place(anchor='nw', relx=0, rely=0)
+
+# Create an object of tkinter ImageTk
+img1 = ImageTk.PhotoImage(Image.open("firstpes.jpg"))
+
+# Create a Label Widget to display the text or Image
+label2 = Label(frame2, image = img1)
+label2.pack()
+
+frame3 = Frame(root, width=1, height=1)
+frame3.pack()
+frame3.place(anchor='center', relx=0.87, rely=0.8)
+
+# Create an object of tkinter ImageTk
+img2 = ImageTk.PhotoImage(Image.open("entmap.jpg"))
+
+# Create a Label Widget to display the text or Image
+label3 = Label(frame3, image = img2)
+label3.pack()
+
+label = Label(frame1, text="\n\n\nGreetings, freshman! \nWelcome to PESUECC!\n\n\n Students have walked through its hallowed gates in pursuit of\n knowledge since 2005. However, this knowledge comes at a price!\n You must face the 5 ISAs.\n Each increasing in difficulty, the ISAs will be a\n test of your mental endurance over the stretch of this semester.\n After conquering the ISAs, your journey does not end for there is the ESA.\nThe dreaded ESA! A 3 hour written test, \ncombining everything you've learnt over the semester,\n vanquishing it is a result of all your hardwork, dedication and sleep sacrificed.\nOne rule, tough! You cannot continue the game if you string together enough bad performanes to accumulate backlog. \n In between each test that you write there will be\n fixed intervals where you can replenish your inventory.\n\n\n The 3 centres of trade and commerce in PESUECC are:\ni) Pixel's Food and Ale: Food and drink to increase your HP can be purchased here.\nii) Armoury of the 4th and 5th: Weapons to battle the tests can be purchased here.\n     iii) Stationary Bazaar: The holy Book of Blue lies here. Armours can also be purchased.\n\n\n\n The road that lies ahead of you is long and hard. Quite literally.\nIt's a long walk from the gate to the class. Get moving.\n To begin, let's make our way to the main block.\n ", font=("Times New Roman", 10))
 label.pack()
 
 welcome_button = Button(
@@ -1206,3 +1232,25 @@ welcome_button = Button(
 welcome_button.pack()
 
 root.mainloop()
+'''
+
+app = Tk()
+app.title("Welcome")
+img =Image.open('pes_bg.jpg')
+bg = ImageTk.PhotoImage(img)
+
+app.geometry("650x450")
+
+# Add image
+label = Label(app, image=bg)
+label.place(x = 0,y = 0)
+
+# Add text
+label2 = Label(app, text = "Hello kittens",
+               font=("Times New Roman", 24))
+
+label2.pack(pady = 50)
+
+# Execute tkinter
+app.mainloop()
+ '''
