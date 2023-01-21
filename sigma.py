@@ -70,14 +70,14 @@ def treasure_box():
     frame_tb.pack()
     prize = random.randint(1, 10)
     rupees = rupees + (prize * 10)
-    L_TB = Label(frame_tb, text="\n\n\n\n\n It's your lucky day!\n On your way to the Pixel Food Court, you found some cash lying on the ground\n with no one else around to collect it. \n It's all yours for the taking! ( ͡° ͜ʖ ͡°) \n")
+    L_TB = Label(frame_tb, text="\n\n\n\n\n It's your lucky day!\n On your way to the Pixel Food Court, you found some cash lying on the ground\n with no one else around to collect it. \n It's all yours for the taking! ( ͡° ͜ʖ ͡°) \n", font=("Times New Roman", 14))
     L_TB.pack()
 
     prize = random.randint(1, 10)
     rupees = rupees + (prize * 10)
 
     L_TB_rupees = Label(
-        frame_tb, text=f"Score! You just made a cool {prize*10} bucks. \n You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.")
+        frame_tb, text=f"Score! You just made a cool {prize*14} bucks. \n You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.", font=("Times New Roman", 14))
     L_TB_rupees.pack()
 
     B_TB = Button(frame_tb, text="Next", command=lambda: treasure_box_exit())
@@ -99,7 +99,7 @@ def shop_pixel():
                            f"Limonata\n"
                            f"Schezwan Noodles\n"
                            f"Chole Bhature\n"
-                           f"Would you like to know more about them?\n")
+                           f"Would you like to know more about them?\n", font=("Times New Roman", 14))
     L_shop_pixel_1.pack()
     B_shop_pixel_Y = Button(frame_shop_pixel, text="Yes",
                             command=lambda: shop_pixel_yes())
@@ -116,7 +116,7 @@ def shop_pixel_no():
     frame_shop_pixel_no = Frame(root)
     frame_shop_pixel_no.pack()
     L_shop_pixel_No = Label(frame_shop_pixel_no, text="Ummm okay then..\n"
-                            "What would you like to buy?")
+                            "What would you like to buy?", font=("Times New Roman", 14))
     L_shop_pixel_No.pack()
     B_shop_pixel_No_SP = Button(
         frame_shop_pixel_no, text="Limonata", command=lambda: shop_pixels_small())
@@ -141,7 +141,7 @@ def shop_pixel_yes():
                                                         "Cost: 30-----------------HP: +50\n"
                                                         "\n""\n""\n"
                                                         "Chole Bhature: It's not food. It's an emotion. My personal favourite\n"
-                                                        "Cost: 40-----------------HP: +60")
+                                                        "Cost: 40-----------------HP: +60", font=("Times New Roman", 14))
     L_shop_pixel_Yes.pack()
     B_shop_pixel_Yes = Button(
         frame_shop_pixel_yes, text="Next", command=lambda: shop_pixel_yestono())
@@ -160,7 +160,7 @@ def shop_pixels_small():
     frame_shop_pixel_small.pack()
     L_shop_pixel_small = Label(frame_shop_pixel_small, text="How many Limonatas would you like to buy?\n"
                                "Cost=250 rupees\n"
-                               f"You have {rupees} rupees")
+                               f"You have {rupees} rupees", font=("Times New Roman", 14))
     L_shop_pixel_small.pack()
 
     B_shop_pixel_small = Button(
@@ -181,15 +181,15 @@ def shop_pixel_small_buy():
     global pixel
     if rupees - 250 < 0:
         L_shop_pixel_small = Label(frame_shop_pixel_small, text="You don't have enough rupees.\n"
-                                   "Let's shop for something else..\n")
+                                   "Let's shop for something else..\0", font=("Times New Roman", 14))
         L_shop_pixel_small.pack()
         # If user has enough rupees
     else:
         pixel = pixel + 1
         rupees = rupees - 250
-        L_shop_pixel_small = Label(frame_shop_pixel_small, text=(f"You now have {rupees} rupees with you\n"
+        L_shop_pixel_small = Label(frame_shop_pixel_small, text=f"You now have {rupees} rupees with you\n"
                                                                  f"You now have {pixel} Limonatas with you\n"
-                                                                 "Let's continue shopping.."))
+                                                                 "Let's continue shopping..", font=("Times New Roman", 14))
         L_shop_pixel_small.pack()
 
 
@@ -198,7 +198,7 @@ def shop_pixels_ultra():
     frame_shop_pixel_no.destroy()
     frame_shop_pixel_ultra = Frame(root)
     frame_shop_pixel_ultra.pack()
-    L_shop_pixel_ultra = Label(frame_shop_pixel_ultra, text="How many Ultra potions would you like to buy?\n"
+    L_shop_pixel_ultra = Label(frame_shop_pixel_ultra, text="How many Schezwan Noodles would you like to buy?\n"
                                "Cost=600 rupees\n"
                                f"You have {rupees} rupees")
     L_shop_pixel_ultra.pack()
@@ -225,7 +225,7 @@ def shop_pixel_ultra_buy():
     if rupees - 600 < 0:
         L_shop_pixel_ultra = Label(frame_shop_pixel_ultra, text="You don't have enough rupees.\n"
                                    f"You have {rupees} rupees with you\n"
-                                   f"You have {schezwan} Ultra Potions with you\n"
+                                   f"You have {schezwan} Schezwan Noodles with you\n"
                                    "Let's shop for something else..\n")
         L_shop_pixel_ultra.pack()
         # B_shop_pixel_ultra_main = Button(frame_shop_pixel_ultra, text="Back")
@@ -234,9 +234,9 @@ def shop_pixel_ultra_buy():
     else:
         schezwan = schezwan + 1
         rupees = rupees - 600
-        L_shop_pixel_ultra = Label(frame_shop_pixel_ultra, text=(f"You now have {rupees} rupees with you\n"
-                                                                 f"You now have {schezwan} Ultra Potions with you\n"
-                                                                 "Let's continue shopping.."))
+        L_shop_pixel_ultra = Label(frame_shop_pixel_ultra, text=f"You now have {rupees} rupees with you\n"
+                                                                 f"You now have {schezwan} Schezwan Noodles with you\n"
+                                                                 "Let's continue shopping..", font=("Times New Roman", 14))
         L_shop_pixel_ultra.pack()
 
 
@@ -247,7 +247,7 @@ def shop_pixels_c():
     frame_shop_pixel_c.pack()
     L_shop_pixel_c = Label(frame_shop_pixel_c, text="How many Chole Bhatures would you like to buy?\n"
                            "Cost=40 rupees\n"
-                           f"You have {rupees} rupees")
+                           f"You have {rupees} rupees", font=("Times New Roman", 14))
     L_shop_pixel_c.pack()
 
     B_shop_pixel_c = Button(frame_shop_pixel_c, text="Buy",
@@ -268,15 +268,15 @@ def shop_pixel_c_buy():
     global chole
     if rupees - 40 < 0:
         L_shop_pixel_c = Label(frame_shop_pixel_c, text="You don't have enough rupees.\n"
-                               "Let's shop for something else..\n")
+                               "Let's shop for something else..\n", font=("Times New Roman", 14))
         L_shop_pixel_c.pack()
         # If user has enough rupees
     else:
         chole = chole + 1
         rupees = rupees - 40
-        L_shop_pixel_c = Label(frame_shop_pixel_c, text=(f"You now have {rupees} rupees with you\n"
+        L_shop_pixel_c = Label(frame_shop_pixel_c, text=f"You now have {rupees} rupees with you\n"
                                                          f"You now have {chole} Chole Bhatures with you\n"
-                                                         "Let's continue shopping.."))
+                                                         "Let's continue shopping..", font=("Times New Roman", 14))
         L_shop_pixel_c.pack()
 
 
@@ -292,27 +292,27 @@ def can():
     frame_can.pack()
     if chai:
         L_can_owned = Label(
-            frame_can, text="Right now, you have the Chai Dagger")
+            frame_can, text="Right now, you have the Chai Dagger", font=("Times New Roman", 14))
         L_can_owned.pack()
     elif puff:
         L_can_owned = Label(
-            frame_can, text="Right now you have a vial of Puff Corn Poison")
+            frame_can, text="Right now you have a vial of Puff Corn Poison", font=("Times New Roman", 14))
         L_can_owned.pack()
     elif mas_puri:
         L_can_owned = Label(
-            frame_can, text="Right now you have the Masala Puri Mallet")
+            frame_can, text="Right now you have the Masala Puri Mallet", font=("Times New Roman", 14))
         L_can_owned.pack()
     elif nippat:
         L_can_owned = Label(
-            frame_can, text="Right now you have the Nippat Nunchucks")
+            frame_can, text="Right now you have the Nippat Nunchucks", font=("Times New Roman", 14))
         L_can_owned.pack()
     elif bun_sam:
         L_can_owned = Label(
-            frame_can, text="Right now you have the Bun Samosa BattleAxe")
+            frame_can, text="Right now you have the Bun Samosa BattleAxe", font=("Times New Roman", 14))
         L_can_owned.pack()
     L_can_intro = Label(frame_can, text="We have 5 items..\n"
                                                       "Chai Dagger, Puff Corn Poison, Masala Puri Mallet, Nippat Nunchuks and Bun Samosa BattleAxe\n"
-                                                      "Would you like to know more about them?\n")
+                                                      "Would you like to know more about them?\n", font=("Times New Roman", 14))
     L_can_intro.pack()
     B_can_Y = Button(frame_can, text="Yes",
                             command=lambda: can_yes())
@@ -336,7 +336,7 @@ def can_yes():
                                              "Nippat Nunchucks: \n"    
                                              "Cost: 500-----------Damage: 50 HP\n"                            
                                              "Bun Samosa BattleAxe: \n"
-                                             "Cost: 600-----------Damage: 60HP")
+                                             "Cost: 600-----------Damage: 60HP", font=("Times New Roman", 14))
                                 
     L_can_Y_info.pack()
 
@@ -356,7 +356,7 @@ def can_no():
     frame_cans_no = Frame(root)
     frame_cans_no.pack()
     L_cans_N = Label(frame_cans_no,
-                            text="Which weapon would you like to prurchase?\n Choose wisely. These instruments will aid you in your conquest.")
+                            text="Which weapon would you like to prurchase?\n Choose wisely. These instruments will aid you in your conquest.", font=("Times New Roman", 14))
     L_cans_N.pack()
     B_cans_Sword1 = Button(
         frame_cans_no, text="Chai Dagger", command=lambda: can1())
@@ -389,7 +389,7 @@ def can1():
         if rupees > 200:
             rupees = rupees - 200
             L_cans_sword1 = Label(frame_cans_no, text="You now have the Chai Dagger\n"
-                                                                    f"You now have {rupees} rupees")
+                                                                    f"You now have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword1.pack()
             chai = True
             puff = False
@@ -399,11 +399,11 @@ def can1():
 
         else:
             L_cans_sword1 = Label(frame_cans_no, text="You don't have enough rupees.\n"
-                                                                    f"You have {rupees} rupees")
+                                                                    f"You have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword1.pack()
     else:
         L_cans_sword1 = Label(
-            frame_cans_no, text="You already have the Chai Dagger.")
+            frame_cans_no, text="You already have the Chai Dagger.", font=("Times New Roman", 14))
         L_cans_sword1.pack()
 
 
@@ -418,7 +418,7 @@ def can2():
         if rupees > 300:
             rupees = rupees - 300
             L_cans_sword2 = Label(frame_cans_no, text="You now have a vial of Puff Corn Poison\n"
-                                                                    f"You now have {rupees} rupees")
+                                                                    f"You now have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword2.pack()
             chai = False
             puff = True
@@ -426,11 +426,11 @@ def can2():
 
         else:
             L_cans_sword2 = Label(frame_cans_no, text="You don't have enough rupees.\n"
-                                                                    f"You have {rupees} rupees")
+                                                                    f"You have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword2.pack()
     else:
         L_cans_sword2 = Label(
-            frame_cans_no, text="You already have Puff Corn Poison")
+            frame_cans_no, text="You already have Puff Corn Poison", font=("Times New Roman", 14))
         L_cans_sword2.pack()
 
 
@@ -445,7 +445,7 @@ def can3():
         if rupees > 400:
             rupees = rupees - 400
             L_cans_sword3 = Label(frame_cans_no, text="You now have the Masala Puri Mallet\n"
-                                                                    f"You now have {rupees} rupees")
+                                                                    f"You now have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword3.pack()
             chai = False
             puff = False
@@ -453,11 +453,11 @@ def can3():
 
         else:
             L_cans_sword3 = Label(frame_cans_no, text="You don't have enough rupees.\n"
-                                                                    f"You have {rupees} rupees")
+                                                                    f"You have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword3.pack()
     else:
         L_cans_sword3 = Label(
-            frame_cans_no, text="You already have the Masala Puri Mallet")
+            frame_cans_no, text="You already have the Masala Puri Mallet", font=("Times New Roman", 14))
         L_cans_sword3.pack()
 
 
@@ -472,7 +472,7 @@ def can4():
         if rupees > 500:
             rupees = rupees - 500
             L_cans_sword4 = Label(frame_cans_no, text="You now have the Nippat Nunchucks.\n"
-                                                                    f"You now have {rupees} rupees")
+                                                                    f"You now have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword4.pack()
             chai = False
             puff = False
@@ -482,11 +482,11 @@ def can4():
 
         else:
             L_cans_sword4 = Label(frame_cans_no, text="You don't have enough rupees.\n"
-                                                                    f"You have {rupees} rupees")
+                                                                    f"You have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword4.pack()
     else:
         L_cans_sword4 = Label(
-            frame_cans_no, text="You already have the Nippat Nunchucks.")
+            frame_cans_no, text="You already have the Nippat Nunchucks.", font=("Times New Roman", 14))
         L_cans_sword4.pack()
 
 
@@ -501,7 +501,7 @@ def can5():
         if rupees > 600:
             rupees = rupees - 600
             L_cans_sword5 = Label(frame_cans_no, text="You now have the Bun Samosa BattleAxe\n"
-                                                                    f"You now have {rupees} rupees")
+                                                                    f"You now have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword5.pack()
             chai = False
             puff = False
@@ -511,11 +511,11 @@ def can5():
 
         else:
             L_cans_sword5 = Label(frame_cans_no, text="You don't have enough rupees.\n"
-                                                                    f"You have {rupees} rupees")
+                                                                    f"You have {rupees} rupees", font=("Times New Roman", 14))
             L_cans_sword5.pack()
     else:
         L_cans_sword5 = Label(
-            frame_cans_no, text="You already have the Bun Samosa BattleAxe.")
+            frame_cans_no, text="You already have the Bun Samosa BattleAxe.", font=("Times New Roman", 14))
         L_cans_sword5.pack()
 
 
@@ -536,20 +536,20 @@ def stat():
     frame_stat.pack()
     if blubook:
         L_stat_owned = Label(
-            frame_stat, text="Right now, you have the Book of Blue")
+            frame_stat, text="Right now, you have the Book of Blue", font=("Times New Roman", 14))
         L_stat_owned.pack()
     elif gonemad:
         L_stat_owned = Label(
-            frame_stat, text="Right now you have the Gone Mad Armour")
+            frame_stat, text="Right now you have the Gone Mad Armour", font=("Times New Roman", 14))
         L_stat_owned.pack()
     elif printo:
         L_stat_owned = Label(
-            frame_stat, text="Right now you have the Prinout Power Armour")
+            frame_stat, text="Right now you have the Prinout Power Armour", font=("Times New Roman", 14))
         L_stat_owned.pack()
   
     L_stat_intro = Label(frame_stat, text="Rations! Get your rations!\n We have 3 types of armors..\n"
                                                       "The Book of Blue, the Gone Mad Armour, and the Prinout Power Armour\n"
-                                                      "Would you like to know more about them?\n")
+                                                      "Would you like to know more about them?\n", font=("Times New Roman", 14))
     L_stat_intro.pack()
     B_stat_Y = Button(frame_stat, text="Yes",
                             command=lambda: stat_yes())
@@ -566,7 +566,7 @@ def stat_yes():
     frame_stat_yes.pack()
     L_stat_Y_info = Label(frame_stat_yes, text="The Book of Blue costs 200 rupees and increases your attack by 20\n"
                                 "Gone Mad Armour costs 300 rupees and increases your attack by 30\n"
-                                "The Printout Power Armour costs 400 rupees and increases your attack by 40\n"
+                                "The Printout Power Armour costs 400 rupees and increases your attack by 40\n", font=("Times New Roman", 14)
                                )
     L_stat_Y_info.pack()
 
@@ -586,7 +586,7 @@ def stat_no():
     frame_stats_no = Frame(root)
     frame_stats_no.pack()
     L_stats_N = Label(frame_stats_no,
-                            text="What would you like to buy?\n")
+                            text="What would you like to buy?\n", font=("Times New Roman", 14))
     L_stats_N.pack()
     B_stats_armor1 = Button(
         frame_stats_no, text="The Book of Blue", command=lambda: stat_armor1())
@@ -614,7 +614,7 @@ def stat_armor1():
         if rupees > 200:
             rupees = rupees - 200
             L_stats_armor1 = Label(frame_stats_no, text="You now have the Blue of Book\n"
-                                                                    f"You now have {rupees} rupees")
+                                                                    f"You now have {rupees} rupees", font=("Times New Roman", 14))
             L_stats_armor1.pack()
             blubook = True
             gonemad = False
@@ -624,11 +624,11 @@ def stat_armor1():
 
         else:
             L_stats_armor1 = Label(frame_stats_no, text="You don't have enough rupees.\n"
-                                                                    f"You have {rupees} rupees")
+                                                                    f"You have {rupees} rupees", font=("Times New Roman", 14))
             L_stats_armor1.pack()
     else:
         L_stats_armor1 = Label(
-            frame_stats_no, text="You're a greedy fellow. You already have the Book of Blue.")
+            frame_stats_no, text="You're a greedy fellow. You already have the Book of Blue.", font=("Times New Roman", 14))
         L_stats_armor1.pack()
 
 
@@ -643,7 +643,7 @@ def stat_armor2():
         if rupees > 300:
             rupees = rupees - 300
             L_stats_armor2 = Label(frame_stats_no, text="You now have the Gone Mad Armour\n"
-                                                                    f"You now have {rupees} rupees")
+                                                                    f"You now have {rupees} rupees", font=("Times New Roman", 14))
             L_stats_armor2.pack()
             blubook = False
             gonemad = True
@@ -653,11 +653,11 @@ def stat_armor2():
 
         else:
             L_stats_armor2 = Label(frame_stats_no, text="You don't have enough rupees.\n"
-                                                                    f"You have {rupees} rupees")
+                                                                    f"You have {rupees} rupees", font=("Times New Roman", 14))
             L_stats_armor2.pack()
     else:
         L_stats_armor2 = Label(
-            frame_stats_no, text="You already have the Gone Mad Armour. But I get it. It's so nice you want it twice.")
+            frame_stats_no, text="You already have the Gone Mad Armour. But I get it. It's so nice you want it twice.", font=("Times New Roman", 14))
         L_stats_armor2.pack()
 
 
@@ -672,7 +672,7 @@ def stat_armor3():
         if rupees > 400:
             rupees = rupees - 400
             L_stats_armor3 = Label(frame_stats_no, text="You now have the Printout Power Armour.\n"
-                                                                    f"You now have {rupees} rupees")
+                                                                    f"You now have {rupees} rupees", font=("Times New Roman", 14))
             L_stats_armor3.pack()
             blubook = False
             gonemad = False
@@ -682,11 +682,11 @@ def stat_armor3():
 
         else:
             L_stats_armor3 = Label(frame_stats_no, text="You don't have enough rupees.\n"
-                                                                    f"You have {rupees} rupees")
+                                                                    f"You have {rupees} rupees", font=("Times New Roman", 14))
             L_stats_armor3.pack()
     else:
         L_stats_armor3 = Label(
-            frame_stats_no, text="What, you egg! Nothing can stab you\n because you already have the Prinout Power Armour")
+            frame_stats_no, text="What, you egg! Nothing can stab you\n because you already have the Prinout Power Armour", font=("Times New Roman", 14))
         L_stats_armor3.pack()
 
 
@@ -722,7 +722,7 @@ def shop():
     frame_shop_1 = Frame(root)
     frame_shop_1.pack()
     L_Shop_Wel = Label(
-        frame_shop_1, text="Ah, break time...\nWhere would you like to go to replenish your inventory today?\n")
+        frame_shop_1, text="Ah, break time...\nWhere would you like to go to replenish your inventory today?\n", font=("Times New Roman", 14))
     L_Shop_Wel.pack()
     # store1 variable to ask user what necessity do they need to buy
     # store1 = input("1=Potion, 2=Sword, 3=Armor, 4=Exit Store\n")
@@ -761,7 +761,7 @@ def monster_potion_1():
                                   f"You have {pixel} Limonatas,\n "
                                   f" {schezwan} Schezwan Noodles\n"
                                   f"And {chole} Chole Bhature\n"
-                                  "What would you like to use?\n")
+                                  "What would you like to use?\n", font=("Times New Roman", 14))
     L_monster_potion_info.pack()
     B_monster_potion_lime = Button(
         frame_monster_potion_1, text="Limonata", command=lambda: monster_potion_1_lime())
@@ -787,7 +787,7 @@ def monster_potion_1_lime():
     global hp
     if pixel == 0:
         L_monster_potion_1_small = Label(
-            frame_monster_potion_1, text="You have no more Limonata")
+            frame_monster_potion_1, text="You have no more Limonata", font=("Times New Roman", 14))
         L_monster_potion_1_small.pack()
     else:
         pixel = pixel - 1
@@ -795,7 +795,7 @@ def monster_potion_1_lime():
         if hp > 100:
             hp = 100
         L_monster_potion_1_small = Label(frame_monster_potion_1, text=f"You HP is now {hp}\n"
-                                                                      f"You have {pixel} Limonata remaining")
+                                                                      f"You have {pixel} Limonata remaining", font=("Times New Roman", 10))
         L_monster_potion_1_small.pack()
 
 
@@ -804,7 +804,7 @@ def monster_potion_1_schezwan():
     global hp
     if schezwan == 0:
         L_monster_potion_1_schezwan = Label(
-            frame_monster_potion_1, text="You have no Schezwan Noodles")
+            frame_monster_potion_1, text="You have no Schezwan Noodles", font=("Times New Roman", 14))
         L_monster_potion_1_schezwan.pack()
     else:
         schezwan = schezwan - 1
@@ -812,7 +812,7 @@ def monster_potion_1_schezwan():
         if hp > 100:
             hp = 100
         L_monster_potion_1_schezwan = Label(frame_monster_potion_1, text=f"You HP is now {hp}\n"
-                                            f"You have {schezwan} Schezwan Noodles remaining")
+                                            f"You have {schezwan} Schezwan Noodles remaining", font=("Times New Roman", 14))
         L_monster_potion_1_schezwan.pack()
 
 
@@ -821,7 +821,7 @@ def monster_potion_1_chole():
     global hp
     if chole == 0:
         L_monster_potion_1_chole = Label(
-            frame_monster_potion_1, text="You have no Chole Bhature")
+            frame_monster_potion_1, text="You have no Chole Bhature", font=("Times New Roman", 14))
         L_monster_potion_1_chole.pack()
     else:
         chole = chole - 1
@@ -829,7 +829,7 @@ def monster_potion_1_chole():
         if hp > 100:
             hp = 100
         L_monster_potion_1_chole = Label(frame_monster_potion_1, text=f"You HP is now {hp}\n"
-                                                                      f"You have {chole} Chole Bhature remaining")
+                                                                      f"You have {chole} Chole Bhature remaining", font=("Times New Roman", 10))
         L_monster_potion_1_chole.pack()
 
 
@@ -839,7 +839,7 @@ def you_died():
     frame_you_died.pack()
     L_You_Died = Label(frame_monster_attack_1, text=f"Wow! Absolutely stellar. After your abysmal performance at {monster}, \nyou now have backlog hanging over your head.\nYou have enough to extend your stay at PES for the semester by a few weeks.\n Who knew you loved the university enough to flunk your exams! \n"
                                                     f"You will not be able to complete this semster in time.\n You know the rules and so do I. You have now been deemed unworthy to continue this awesome game\n made by Vedanth, Udit and Rithvik..\n"
-                                                    f"Now, leave!")
+                                                    f"Now, leave!", font=("Times New Roman", 14))
     L_You_Died.pack()
     B_You_died = Button(frame_monster_attack_1,
                         text="Quit", command=lambda: quit())
@@ -863,7 +863,7 @@ def monster_counterattack_1():
     global monster
     global hp
     L_monster_counterattack_1 = Label(
-        frame_monster_attack_1, text=f"Now {monster} will take it's turn.\n")
+        frame_monster_attack_1, text=f"Now {monster} will take it's turn.\n", font=("Times New Roman", 14))
     L_monster_counterattack_1.pack()
     opp_attack = random.randint(((m - 1) * 10), (m * 10))
     hp = hp - opp_attack
@@ -878,12 +878,12 @@ def monster_counterattack_1():
     if hp < 0:
         hp = 0
         L_monster_counterattack_result = Label(
-            frame_monster_attack_1, text=f"Your HP={hp}\n")
+            frame_monster_attack_1, text=f"Your HP={hp}\n", font=("Times New Roman", 14))
         L_monster_counterattack_result.pack()
         you_died()
     else:
         L_monster_counterattack_result = Label(
-            frame_monster_attack_1, text=f"Your HP={hp}\n")
+            frame_monster_attack_1, text=f"Your HP={hp}\n", font=("Times New Roman", 14))
         L_monster_counterattack_result.pack()
         B_monster_attack_2 = Button(
             frame_monster_attack_1, text="Attack", command=lambda: monster_counter_to_attack())
@@ -905,13 +905,14 @@ def monster_counter_to_attack():
 
 def monster_attack_1():
     global opp_hp
+    
     global monster
     global frame_monster_attack_1
     frame_monster_1.destroy()
     frame_monster_attack_1 = Frame(root)
     frame_monster_attack_1.pack()
     L_monster_attack_1 = Label(
-        frame_monster_attack_1, text="You chose to attack.\n")
+        frame_monster_attack_1, text="You chose to attack.\n", font=("Times New Roman", 14))
     L_monster_attack_1.pack()
     userattack = random.randint(40, 70)
     opp_hp = opp_hp - userattack
@@ -932,7 +933,7 @@ def monster_attack_1():
 
     if opp_hp > 0:
         L_monster_attack_result = Label(
-            frame_monster_attack_1, text=f"{monster}'s HP={opp_hp}\n")
+            frame_monster_attack_1, text=f"{monster}'s HP={opp_hp}\n", font=("Times New Roman", 14))
         L_monster_attack_result.pack()
         monster_counterattack_1()
 
@@ -942,7 +943,7 @@ def monster_attack_1():
                                                                      f"Your HP = {hp}\n"
                                                                      f"you defeated {monster}\n"
                                                                      "You have some time to rest.\n"
-                                                                     "Would you like to use eat or drink something?\n")
+                                                                     "Would you like to use eat or drink something?\n", font=("Times New Roman", 14))
         L_monster_attack_result.pack()
         B__monster_attack_result_yes = Button(
             frame_monster_attack_1, text="Yes", command=lambda: drink_potion())
@@ -974,7 +975,7 @@ def drink_potion():
                                   f"You have {pixel} Limonatas,\n"
                                   f"{schezwan} Schezwan Noodles,\n"
                                   f" and {chole} Chole Bhatures"
-                                  "What would you like to use?\n")
+                                  "What would you like to use?\n", font=("Times New Roman", 14))
     L_monster_potion_info.pack()
     B_monster_potion_lime = Button(
         frame_monster_potion_1, text="Limonata", command=lambda: monster_potion_1_lime())
@@ -1010,7 +1011,7 @@ def fight_monster():
     frame_fight_monster.pack()
     L_monster_intro = Label(frame_fight_monster, text=f"Your HP = {hp}\n"
                                                       f"{monster}'s HP = {opp_hp}\n"
-                                                      "Would you like to attack or use potion??\n")
+                                                      "Would you like to attack or use potion??\n", font=("Times New Roman", 14))
     L_monster_intro.pack()
     B_monster_attack_1 = Button(
         frame_fight_monster, text="Attack", command=lambda: fight_monster_to_monster_attack())
@@ -1029,7 +1030,7 @@ def isa1():
     frame_monster_1 = Frame(root)
     frame_monster_1.pack()
     L_monster_Wel = Label(
-        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the cover.\n It's that time again. It's ISA time!", font=("Times New Roman",14))
     L_monster_Wel.pack()
    
     opp_hp = 100
@@ -1038,7 +1039,7 @@ def isa1():
         # monster 1
         # Attack in range of 0-10
       L_m1_intro = Label(frame_monster_1, text="You have to face ISA 1.\n Ah, the first. You always remember your first.\n ISA, I mean! You always remember your first ISA. \n That's obviously what I meant."
-                                                 "You've made your way to the Mech Block. Sat at your terminal.\n The test has started! Good luck!")
+                                                 "You've made your way to the Mech Block. Sat at your terminal.\n The test has started! Good luck!", font=("Times New Roman", 14))
       L_m1_intro.pack()
       fight_monster()
 
@@ -1053,7 +1054,7 @@ def isa2():
     frame_monster_1 = Frame(root)
     frame_monster_1.pack()
     L_monster_Wel = Label(
-        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
     opp_hp = 100
     if monster == "ISA 2":
@@ -1061,7 +1062,7 @@ def isa2():
         # monster 2
         # Attack in range of 10-20
       L_m2_intro = Label(frame_monster_1, text="You have to face ISA 2\n"
-                                                 "The match starts. You get the first chance\n")
+                                                 "The match starts. You get the first chance\n", font=("Times New Roman", 14))
       L_m2_intro.pack()
       fight_monster()
         # opp_att = random.randint(10, 20)
@@ -1075,7 +1076,7 @@ def isa3():
     frame_monster_1 = Frame(root)
     frame_monster_1.pack()
     L_monster_Wel = Label(
-        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
    
     opp_hp = 100
@@ -1084,7 +1085,7 @@ def isa3():
         # monster 3
         # Attack in range of 20-30
         L_m3_intro = Label(frame_monster_1, text="You have to face ISA 3\n"
-                                                 "The match starts. You get the first chance\n")
+                                                 "The match starts. You get the first chance\n", font=("Times New Roman", 14))
         L_m3_intro.pack()
         fight_monster()
         # opp_att = random.randint(20, 30)
@@ -1097,7 +1098,7 @@ def isa4():
     frame_monster_1 = Frame(root)
     frame_monster_1.pack()
     L_monster_Wel = Label(
-        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
    
     opp_hp = 100
@@ -1106,7 +1107,7 @@ def isa4():
         # monster 4
         # Attack in range of 30-40
         L_m4_intro = Label(frame_monster_1, text="You have to face ISA 4\n"
-                                                 "The match starts. You get the first chance\n")
+                                                 "The match starts. You get the first chance\n", font=("Times New Roman", 14))
         L_m4_intro.pack()
         fight_monster()
         # opp_att = random.randint(30, 40)
@@ -1119,7 +1120,7 @@ def isa5():
     frame_monster_1 = Frame(root)
     frame_monster_1.pack()
     L_monster_Wel = Label(
-        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
    
     opp_hp = 100
@@ -1128,7 +1129,7 @@ def isa5():
         # monster 5
         # Attack in range of 40-50
         L_m5_intro = Label(frame_monster_1, text="You have to face ISA 5\n"
-                                                 "The match starts. You get the first chance\n")
+                                                 "The match starts. You get the first chance\n", font=("Times New Roman", 14))
         L_m5_intro.pack()
         fight_monster()
         # opp_att = random.randint(40, 50)
@@ -1141,7 +1142,7 @@ def esa():
     frame_monster_1 = Frame(root)
     frame_monster_1.pack()
     L_monster_Wel = Label(
-        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!")
+        frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
    
     opp_hp = 100
@@ -1150,7 +1151,7 @@ def esa():
         # monster 6
         # Attack in range of 50-60
         L_m6_intro = Label(frame_monster_1, text="You have to face the ESA.\n"
-                                                 "The match starts. You get the first chance\n")
+                                                 "The match starts. You get the first chance\n", font=("Times New Roman", 14))
         L_m6_intro.pack()
         fight_monster()
         # opp_att = random.randint(50, 60)
@@ -1160,8 +1161,8 @@ def gate():
     global frame_gate
     frame1.destroy()
     frame_gate = Frame(root)
-    frame_gate.pack()
-    L_gate = Label(frame_gate, text="\n\n\n\n\n As you make your way to the entrance of the main block, \n you hear cries that have a tone of urgency and persuasion. \n 'ID CARD HAKOLI! ID CARD HAKOLI! '\n They seem to be coming from an older gentleman in a sky blue attire. \n Standing beside the apparent quinquagenarian are \ntwo even larger men guarding the entrance like sentinels. \n Gargantuan in physique, they execute their job with extreme proficiency,\n grabbing a hold of anyone who tries to enter the block without their ID card.\n Phew! Thank God you got yours! \n ")
+    frame_gate.pack(pady=50)
+    L_gate = Label(frame_gate, text=" As you make your way to the entrance of the main block, \n you hear cries that have a tone of urgency and persuasion. \n 'ID CARD HAKOLI! ID CARD HAKOLI! '\n They seem to be coming from an older gentleman in a sky blue attire. \n Standing beside the apparent quinquagenarian are \ntwo even larger men guarding the entrance like sentinels. \n Gargantuan in physique, they execute their job with extreme proficiency,\n grabbing a hold of anyone who tries to enter the block without their ID card.\n Phew! Thank God you got yours! \n ", font=('Times New Roman', 17))
     L_gate.pack()
 
     B_gate = Button(frame_gate, text="Next", command=lambda: gate_exit())
@@ -1171,13 +1172,19 @@ def the_end():
     global frame_end
     frame_end= Frame(root)
     frame_end.pack()
-    L_end = Label(frame_end, text="\n\n\n\n\n\nCONGRATULATIONS!!!!!! YOU DID IT!! FREEDOM!!!!😭😭 \nYou made it to the end of the semester.\nI thoroughly enjoyed accompanying you in this quest of yours. I wish I could come along with you.\nBut what am I to do? I am just a humble NPC synthesized by my creators,\n Vedanth, Rithvik, and Udit relegated to this digital dimension to serve whosoever enters it. \n I will remember you. Take care. Goodbye, friend. ", font=('Times New Roman', 10) )
+    L_end = Label(frame_end, text="\n\n\n\n\n\nCONGRATULATIONS!!!!!! YOU DID IT!! FREEDOM!!!!😭😭 \nYou made it to the end of the semester.\nI thoroughly enjoyed accompanying you in this quest of yours. I wish I could come along with you.\nBut what am I to do? I am just a humble NPC synthesized by my creators,\n Vedanth, Rithvik, and Udit relegated to this digital dimension to serve whosoever enters it. \n I will remember you. Take care. Goodbye, friend. ", font=('Times New Roman', 16) )
     L_end.pack()
     B_end = Button(frame_end,
                         text="Quit", command=lambda: end_quit())
     B_end.pack()
-
-
+def winter():
+    global frame_winter
+    frame_winter= Frame(root)
+    frame_winter.pack()
+    L_winter= Label(frame_winter, "ISA 3 draws to a close and you celebrate yet another victory. But something is different.\n You notice a drop in temperature. It is apparent. Winter is coming.\n A thick fog associates itself with the once pure and clear air. It hinders your sight.\n But not your vision. Your vision to make to it past the ESA with ease.\n Your journey is half complete. March on, brave warrior. March on.")
+    L_winter.pack()
+    B_winter = Button(frame_winter, text= "March on-->", command= lambda: get_room())
+    B_winter.pack()
 def end_quit():
     global quit_frame
     quit_frame = Frame(root)
@@ -1224,7 +1231,7 @@ img2 = ImageTk.PhotoImage(Image.open("entmap.jpg"))
 label3 = Label(frame3, image = img2)
 label3.pack()
 
-label = Label(frame1, text="\n\n\nGreetings, freshman! \nWelcome to PESUECC!\n\n\n Students have walked through its hallowed gates in pursuit of\n knowledge since 2005. However, this knowledge comes at a price!\n You must face the 5 ISAs.\n Each increasing in difficulty, the ISAs will be a\n test of your mental endurance over the stretch of this semester.\n After conquering the ISAs, your journey does not end for there is the ESA.\nThe dreaded ESA! A 3 hour written test, \ncombining everything you've learnt over the semester,\n vanquishing it is a result of all your hardwork, dedication and sleep sacrificed.\nOne rule, tough! You cannot continue the game if you string together enough bad performanes to accumulate backlog. \n In between each test that you write there will be\n fixed intervals where you can replenish your inventory.\n\n\n The 3 centres of trade and commerce in PESUECC are:\ni) Pixel's Food and Ale: Food and drink to increase your HP can be purchased here.\nii) Armoury of the 4th and 5th: Weapons to battle the tests can be purchased here.\n     iii) Stationary Bazaar: The holy Book of Blue lies here. Armours can also be purchased.\n\n\n\n The road that lies ahead of you is long and hard. Quite literally.\nIt's a long walk from the gate to the class. Get moving.\n To begin, let's make our way to the main block.\n ", font=("Times New Roman", 10))
+label = Label(frame1, text="\n\n\nGreetings, freshman! \nWelcome to PESUECC!\n\n\n Students have walked through its hallowed gates in pursuit of\n knowledge since 2005. However, this knowledge comes at a price!\n You must face the 5 ISAs.\n Each increasing in difficulty, the ISAs will be a\n test of your mental endurance over the stretch of this semester.\n After conquering the ISAs, your journey does not end for there is the ESA.\nThe dreaded ESA! A 3 hour written test, \ncombining everything you've learnt over the semester,\n vanquishing it is a result of all your hardwork, dedication and sleep sacrificed.\nOne rule, tough! You cannot continue the game if you string together enough bad performanes to accumulate backlog. \n In between each test that you write there will be\n fixed intervals where you can replenish your inventory.\n\n\n The 3 centres of trade and commerce in PESUECC are:\ni) Pixel's Food and Ale: Food and drink to increase your HP can be purchased here.\nii) Armoury of the 4th and 5th: Weapons to battle the tests can be purchased here.\n     iii) Stationary Bazaar: The holy Book of Blue lies here. Armours can also be purchased.\n\n\n\n The road that lies ahead of you is long and hard. Quite literally.\nIt's a long walk from the gate to the class. Get moving.\n To begin, let's make our way to the main block.\n ", font=("Times New Roman", 14))
 label.pack()
 
 welcome_button = Button(
