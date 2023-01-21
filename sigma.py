@@ -49,9 +49,11 @@ def get_room():
         frame1.destroy()
         esa()
     elif i==6:
+        the_end()
+    elif i==7:
         frame1.destroy()
         treasure_box()
-    elif i==7:
+    elif i==8:
         frame1.destroy()
         shop()
    
@@ -832,8 +834,8 @@ def you_died():
     frame_you_died = Frame(root)
     frame_you_died.pack()
     L_You_Died = Label(frame_monster_attack_1, text=f"Wow! Absolutely stellar. After your abysmal performance at {monster}, \nyou now have backlog hanging over your head.\nYou have enough to extend your stay at PES for the semester by a few weeks.\n Who knew you loved the university enough to flunk your exams! \n"
-                                                    f"You will not be able to complete this semster in time.\n Thus, you are deemed unworthy to continue this awesome game\n made by Vedanth, Udit and Rithvik..\n"
-                                                    f"Now click that quit button before we throw up in our mouths.")
+                                                    f"You will not be able to complete this semster in time.\n You know the rules and so do I. You have now been deemed unworthy to continue this awesome game\n made by Vedanth, Udit and Rithvik..\n"
+                                                    f"Now, leave!")
     L_You_Died.pack()
     B_You_died = Button(frame_monster_attack_1,
                         text="Quit", command=lambda: quit())
@@ -1161,6 +1163,29 @@ def gate():
     B_gate = Button(frame_gate, text="Next", command=lambda: gate_exit())
     B_gate.pack()
 
+def the_end():
+    global frame_end
+    frame_end= Frame(root)
+    frame_end.pack()
+    L_end = Label(frame_end, text="\n\n\n\n\n\nCONGRATULATIONS!!!!!! YOU DID IT!! FREEDOM!!!!😭😭 \nYou made it to the end of the semester.\nI thoroughly enjoyed accompanying you in this quest of yours. I wish I could come along with you.\nBut what am I to do? I am just a humble NPC synthesized by my creators,\n Vedanth, Rithvik, and Udit relegated to this digital dimension to serve whosoever enters it. \nGoodbye, friend." )
+    L_end.pack()
+    B_end = Button(frame_end,
+                        text="Quit", command=lambda: end_quit())
+    B_end.pack()
+
+
+def end_quit():
+    global quit_frame
+    quit_frame = Frame(root)
+    quit_frame.pack()
+    quit_frame.place(anchor='center', relx=0.5, rely=0.5)
+    img = ImageTk.PhotoImage(Image.open('supebatsy.jpg'))
+    label = Label(quit_frame, image=img)
+    label.image = img
+    label.pack()
+    label2 = Label(quit_frame, text="Thanks for playing :D")
+    label2.pack()
+
 
 def gate_exit():
     frame_gate.destroy()
@@ -1173,7 +1198,7 @@ frame1 = Frame(root, padx=1, pady=1)
 frame1.pack(padx=10, pady=10)
 
 root.geometry("500x500")
-label = Label(frame1, text="\n\n\n\n\n\nWelcome to PESUECC!\n Students have walked through its hallowed gates in pursuit of\n knowledge since 2005.This knowledge comes at a price!\n You must face the 5 ISAs.\n Each increasing in difficulty, the ISAs will be a test of your mental endurance.\n After conquering the ISAs, your journey does not end. Finally, there is the ESA.\n A 3 hour written test, combining everything you've learnt over the semester,\n vanquishing it is a result of all your learnings from your professors.\n The road that lies ahead of you is long and hard.\n To begin, let's make our way to the main block.\n ")
+label = Label(frame1, text="\n\n\nGreetings, freshman! \nWelcome to PESUECC!\n\n\n Students have walked through its hallowed gates in pursuit of\n knowledge since 2005. However, this knowledge comes at a price!\n You must face the 5 ISAs.\n Each increasing in difficulty, the ISAs will be a\n test of your mental endurance over the stretch of this semester.\n After conquering the ISAs, your journey does not end for there is the ESA.\nThe dreaded ESA! A 3 hour written test, \ncombining everything you've learnt over the semester,\n vanquishing it is a result of all your hardwork, dedication and sleep sacrificed.\nOne rule, tough! You cannot continue the game if you string together enough bad performanes to accumulate backlog. \n In between each test that you write there will be\n fixed intervals where you can replenish your inventory.\n\n\n The 3 centres of trade and commerce in PESUECC are:\ni) Pixel's Food and Ale: Food and drink to increase your HP can be purchased here.\nii) Armoury of the 4th and 5th: Weapons to battle the tests can be purchased here.\n     iii) Stationary Bazaar: The holy Book of Blue lies here. Armours can also be purchased.\n\n\n\n The road that lies ahead of you is long and hard. Quite literally.\nIt's a long walk from the gate to the class. Get moving.\n To begin, let's make our way to the main block.\n ")
 label.pack()
 
 welcome_button = Button(
