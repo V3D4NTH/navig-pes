@@ -720,9 +720,9 @@ def shop():
     global schezwan
     global frame_shop_1
     frame_shop_1 = Frame(root)
-    frame_shop_1.pack()
+    frame_shop_1.pack(pady=250)
     L_Shop_Wel = Label(
-        frame_shop_1, text="Ah, break time...\nWhere would you like to go to replenish your inventory today?\n", font=("Times New Roman", 14))
+        frame_shop_1, text="Ah, break time...\nWhere would you like to go to replenish your inventory today?\n", font=("Times New Roman", 17))
     L_Shop_Wel.pack()
     # store1 variable to ask user what necessity do they need to buy
     # store1 = input("1=Potion, 2=Sword, 3=Armor, 4=Exit Store\n")
@@ -1074,7 +1074,7 @@ def isa3():
     monster= "ISA 3"
     global frame_monster_1
     frame_monster_1 = Frame(root)
-    frame_monster_1.pack()
+    frame_monster_1.pack(pady=100)
     L_monster_Wel = Label(
         frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
