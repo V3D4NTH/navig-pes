@@ -85,7 +85,7 @@ def treasure_box():
     rupees = rupees + (prize * 10)
 
     L_TB_rupees = Label(
-        frame_tb, text=f"Score! You just made a cool {prize*14} bucks. \n You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.", font=("Times New Roman", 14))
+        frame_tb, text=f"Score! You just made a cool {prize*10} bucks. \n You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.", font=("Times New Roman", 14))
     L_TB_rupees.pack()
 
     B_TB = Button(frame_tb, text="Next", command=lambda: treasure_box_exit())
@@ -146,10 +146,10 @@ def shop_pixel_yes():
                                                         "Cost: 15-----------------HP: +30\n"
                                                         "\n""\n""\n"
                                                         "Schezwan Noodles: One of the most famous Chinese take-out dishes. And with good reason\n"
-                                                        "Cost: 30-----------------HP: +50\n"
+                                                        "Cost: 30-----------------HP: +40\n"
                                                         "\n""\n""\n"
                                                         "Chole Bhature: It's not food. It's an emotion. My personal favourite\n"
-                                                        "Cost: 40-----------------HP: +60", font=("Times New Roman", 14))
+                                                        "Cost: 40-----------------HP: +50", font=("Times New Roman", 14))
     L_shop_pixel_Yes.pack()
     B_shop_pixel_Yes = Button(
         frame_shop_pixel_yes, text="Next", command=lambda: shop_pixel_yestono())
@@ -764,9 +764,9 @@ def monster_potion_1():
     frame_monster_potion_1 = Frame(root)
     frame_monster_potion_1.pack()
     L_monster_potion_info = Label(frame_monster_potion_1, text=f"Limonata increases your HP by 30\n"
-                                  f"Schezwan Noodles increases your HP by 50\n"
+                                  f"Schezwan Noodles increases your HP by 40\n"
                                   f"And..\n"
-                                  f"Chole Bhature increases your HP by 60\n"
+                                  f"Chole Bhature increases your HP by 50\n"
                                   f"Your HP is {hp}\n"
                                   f"You have {pixel} Limonatas,\n "
                                   f" {schezwan} Schezwan Noodles\n"
