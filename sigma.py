@@ -762,7 +762,7 @@ def shop():
 def monster_potion_1():
     global frame_monster_potion_1
     frame_monster_potion_1 = Frame(root)
-    frame_monster_potion_1.pack()
+    frame_monster_potion_1.pack(pady=150)
     L_monster_potion_info = Label(frame_monster_potion_1, text=f"Limonata increases your HP by 30\n"
                                   f"Schezwan Noodles increases your HP by 40\n"
                                   f"And..\n"
