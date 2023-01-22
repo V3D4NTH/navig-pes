@@ -25,7 +25,7 @@ chole = 1
 which_potion = 0
 
 
-def get_room():
+def control_room():
     # room = ("isa1", "isa2", "isa3", "isa4", "isa5", "esa, treasure", "shop", "shop")
     # inside_room = random.choice(room)
     global i
@@ -38,11 +38,10 @@ def get_room():
         frame1.destroy()
         isa1()
     elif i==2:
-        frame1.destroy()
-        isa2()
+        shop()
     elif i==3:
         frame1.destroy()
-        shop()
+        isa2()
     elif i==4:
         frame1.destroy()
         isa3()
@@ -51,18 +50,24 @@ def get_room():
         winter()
     elif i==6:
         frame1.destroy()
-        isa4()
+        shop()
     elif i==7:
         frame1.destroy()
-        isa5()
+        isa4()
     elif i==8:
-        esa()
+        frame1.destroy()
+        treasure_box()
     elif i==9:
         frame1.destroy()
-        the_end()
-    elif i==10:
-        frame1.destroy()
         shop()
+    elif i==10:
+        isa5()
+    elif i==11:
+        frame1.destroy()
+        esa()
+    elif i==12:
+        the_end()
+
    
 
 # treasure box room
@@ -89,7 +94,7 @@ def treasure_box():
 
 def treasure_box_exit():
     frame_tb.destroy()
-    get_room()
+    control_room()
 
 
 def shop_pixel():
@@ -706,7 +711,7 @@ def shop_exit():
     # L_shop_exit.pack()
     # time.sleep(2)
     frame_shop_1.destroy()
-    get_room()
+    control_room()
 
 
 def shop():
@@ -870,7 +875,7 @@ def monster_counterattack_1():
     L_monster_counterattack_1 = Label(
         frame_monster_attack_1, text=f"Now {monster} will take it's turn.\n", font=("Times New Roman", 14))
     L_monster_counterattack_1.pack()
-    opp_attack = random.randint(((m - 1) * 10), (m * 10))
+    opp_attack = random.randint((m * 10), ((m+1) * 10))
     hp = hp - opp_attack
 
     if blubook == True:
@@ -915,26 +920,26 @@ def monster_attack_1():
     global frame_monster_attack_1
     frame_monster_1.destroy()
     frame_monster_attack_1 = Frame(root)
-    frame_monster_attack_1.pack()
+    frame_monster_attack_1.pack(pady=100)
     L_monster_attack_1 = Label(
         frame_monster_attack_1, text="You chose to attack.\n", font=("Times New Roman", 14))
     L_monster_attack_1.pack()
-    userattack = random.randint(40, 70)
+    userattack = random.randint(20, 40)
     opp_hp = opp_hp - userattack
     if chai == True:
-        opp_hp = opp_hp - 10
+        opp_hp = opp_hp - 5
 
     elif puff == True:
-        opp_hp = opp_hp - 20
+        opp_hp = opp_hp - 7
 
     elif mas_puri == True:
-        opp_hp = opp_hp - 25
+        opp_hp = opp_hp - 10
 
     elif nippat == True:
-        opp_hp = opp_hp - 30
+        opp_hp = opp_hp - 13
 
     elif bun_sam == True:
-        opp_hp = opp_hp - 45
+        opp_hp = opp_hp - 16
 
     if opp_hp > 0:
         L_monster_attack_result = Label(
@@ -960,12 +965,12 @@ def monster_attack_1():
 
 def monster_rest_no_to_room():
     frame_monster_attack_1.destroy()
-    get_room()
+    control_room()
 
 
 def monster_rest_to_room():
     frame_monster_potion_1.destroy()
-    get_room()
+    control_room()
 
 
 def drink_potion():
@@ -1033,7 +1038,7 @@ def isa1():
     monster="ISA 1"
     global frame_monster_1
     frame_monster_1 = Frame(root)
-    frame_monster_1.pack()
+    frame_monster_1.pack(pady=100)
     L_monster_Wel = Label(
         frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the cover.\n It's that time. It's ISA time!", font=("Times New Roman",14))
     L_monster_Wel.pack()
@@ -1057,7 +1062,7 @@ def isa2():
     monster= "ISA 2"
     global frame_monster_1
     frame_monster_1 = Frame(root)
-    frame_monster_1.pack()
+    frame_monster_1.pack(pady=100)
     L_monster_Wel = Label(
         frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
@@ -1101,7 +1106,7 @@ def isa4():
     monster= "ISA 4"
     global frame_monster_1
     frame_monster_1 = Frame(root)
-    frame_monster_1.pack()
+    frame_monster_1.pack(pady=100)
     L_monster_Wel = Label(
         frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
@@ -1123,7 +1128,7 @@ def isa5():
     monster= "ISA 5"
     global frame_monster_1
     frame_monster_1 = Frame(root)
-    frame_monster_1.pack()
+    frame_monster_1.pack(pady=100)
     L_monster_Wel = Label(
         frame_monster_1, text="Grab your ID card! Don't forget your calculator!\n And even more importantly, don't forget to take off the calc cover.\n It's that time again. It's ISA time!", font=("Times New Roman", 14))
     L_monster_Wel.pack()
@@ -1133,7 +1138,7 @@ def isa5():
         m = 5
         # monster 5
         # Attack in range of 40-50
-        L_m5_intro = Label(frame_monster_1, text="You have to face ISA 5.\n No rest for the weary. You're almost at the finish line. \nJust one away from the ESA. Stay focussed. You're almost there.\n"
+        L_m5_intro = Label(frame_monster_1, text="You have to face ISA 5.\n No rest for the weary. You're almost at the finish line. \nJust one away from the ESA. Stay focused. You're almost there.\n"
                                                  "The match starts. You get the first chance\n", font=("Times New Roman", 14))
         L_m5_intro.pack()
         fight_monster()
@@ -1145,9 +1150,9 @@ def esa():
     monster= "ESA"
     global frame_monster_1
     frame_monster_1 = Frame(root)
-    frame_monster_1.pack()
+    frame_monster_1.pack(pady=100)
     L_monster_Wel = Label(
-        frame_monster_1, text="It's here! It's finally here! Now is the time to \ntest your mettle. Get ready. It all comes down to this.", font=("Times New Roman", 14))
+        frame_monster_1, text="It's here! It's finally here! Now is the time to \ntest your mettle. Get ready. It all comes down to this.\n", font=("Times New Roman", 14))
     L_monster_Wel.pack()
    
     opp_hp = 100
@@ -1155,7 +1160,7 @@ def esa():
         m = 6
         # monster 6
         # Attack in range of 50-60
-        L_m6_intro = Label(frame_monster_1, text="You have to face the ESA.\n I won't say anything else. Good luck. I'll see you on the other side."
+        L_m6_intro = Label(frame_monster_1, text="You have to face the ESA.\n I won't say anything else. Good luck.\n I'll see you on the other side."
                                                  "The match starts. You get the first chance\n", font=("Times New Roman", 14))
         L_m6_intro.pack()
         fight_monster()
@@ -1177,8 +1182,8 @@ def gate():
 def the_end():
     global frame_end
     frame_end= Frame(root)
-    frame_end.pack()
-    L_end = Label(frame_end, text="\n\n\n\n\n\nCONGRATULATIONS!!!!!! YOU DID IT!! FREEDOM!!!!😭😭 \nYou made it to the end of the semester.\n \nBut the end is never the end. A new challenge awaits.\n A test no man could be prepared for. A new hell he must conquer and destroy. \nA new level of growth he must confront himself.\nI thoroughly enjoyed accompanying you in \nthis quest of yours. I wish I could come along with you.\nBut what am I to do? I am just a humble NPC synthesized by my creators,\n Vedanth, Rithvik, and Udit relegated to this digital dimension to serve whosoever enters it.\n I will remember you. Take care. Goodbye, friend. ", font=('Times New Roman', 16) )
+    frame_end.pack(pady=200)
+    L_end = Label(frame_end, text="CONGRATULATIONS!!!!!! YOU DID IT!! FREEDOM!!!!😭😭 \nYou made it to the end of the semester.\n \nBut the end is never the end. A new challenge awaits.\n A test no man could be prepared for. A new hell he must conquer and destroy. \nA new level of growth he must confront himself.\nI thoroughly enjoyed accompanying you in \nthis quest of yours. I wish I could come along with you.\nBut what am I to do? I am just a humble NPC synthesized by my creators,\n Vedanth, Rithvik, and Udit relegated to this digital dimension to serve whosoever enters it.\n I will remember you. Take care. Goodbye, friend. ", font=('Times New Roman', 16) )
     L_end.pack()
     B_end = Button(frame_end,
                         text="Quit", command=lambda: end_quit())
@@ -1195,7 +1200,7 @@ def bef_isa1():
 
 def bef_exit():
     frame_bef.destroy()
-    get_room()
+    control_room()
 
 def winter():
     global frame_winter
@@ -1208,7 +1213,7 @@ def winter():
     
 def winter_exit():
     frame_winter.destroy()
-    get_room()
+    control_room()
 def end_quit():
     global quit_frame
     quit_frame = Frame(root)
@@ -1224,7 +1229,7 @@ def end_quit():
 
 def gate_exit():
     frame_gate.destroy()
-    get_room()
+    control_room()
 
 
 root = Tk()
@@ -1232,7 +1237,7 @@ root.title("Navigating PES")
 frame1 = Frame(root, padx=1, pady=1)
 frame1.pack(padx=50, pady=50)
 root.geometry("500x500")
-root['bg']='firebrick3'
+root['bg']='firebrick'
 frame2 = Frame(root, width=1, height=1)
 frame2.pack()
 frame2.place(anchor='nw', relx=0, rely=0)
