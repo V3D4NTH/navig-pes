@@ -85,7 +85,7 @@ def treasure_box():
     rupees = rupees + (prize * 10)
 
     L_TB_rupees = Label(
-        frame_tb, text=f"Score! You just made a cool {prize*10} bucks. \n You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.", font=("Times New Roman", 14))
+        frame_tb, text=f"Score! You now have {rupees} rupees.\n Looks like the BMTC bus ride back home is sorted.", font=("Times New Roman", 14))
     L_TB_rupees.pack()
 
     B_TB = Button(frame_tb, text="Next", command=lambda: treasure_box_exit())
@@ -573,10 +573,10 @@ def stat_yes():
     frame_stat_yes = Frame(root)
     frame_stat_yes.pack(pady=200)
     L_stat_Y_info = Label(frame_stat_yes, text="The Book of Blue: Quintessential for your assignments. This is a must-have.\n"
-                                               "Cost:10, 15 or 20. Who knows----------Protection: 7 HP\n\n"
+                                               "Cost:10, 15 or 20. Who knows----------Protection: 3 HP\n\n"
                                 "Gone Mad Cloak: A staple. A fan favourite.\n"
-                                "Cost: 5--------------------------------Protection:5 HP\n\n"
-                                "The Printout Power Cloak: Because you didn't write notes\n" "Cost: 10--------------------------------Protection: 10 HP", font=("Times New Roman", 14)
+                                "Cost: 5--------------------------------Protection:1 HP\n\n"
+                                "The Printout Power Cloak: Because you didn't write notes\n" "Cost: 10--------------------------------Protection: 5 HP", font=("Times New Roman", 14)
                                )
     L_stat_Y_info.pack()
 
@@ -861,7 +861,7 @@ def quit():
     quit_frame = Frame(root)
     quit_frame.pack()
     quit_frame.place(anchor='center', relx=0.5, rely=0.5)
-    img = ImageTk.PhotoImage(Image.open('supebatsy.jpg'))
+    img = ImageTk.PhotoImage(Image.open('vru2.jpg'))
     label = Label(quit_frame, image=img)
     label.image = img
     label.pack()
@@ -879,11 +879,11 @@ def monster_counterattack_1():
     hp = hp - opp_attack
 
     if blubook == True:
-        hp = hp + 7
+        hp = hp + 1
     elif gonemad == True:
-        hp = hp + 5
+        hp = hp + 3
     elif printo == True:
-        hp = hp + 10
+        hp = hp + 5
  
     if hp < 0:
         hp = 0
@@ -1219,7 +1219,7 @@ def end_quit():
     quit_frame = Frame(root)
     quit_frame.pack()
     quit_frame.place(anchor='center', relx=0.5, rely=0.5)
-    img = ImageTk.PhotoImage(Image.open('supebatsy.jpg'))
+    img = ImageTk.PhotoImage(Image.open('vru2.jpg'))
     label = Label(quit_frame, image=img)
     label.image = img
     label.pack()
@@ -1268,3 +1268,5 @@ welcome_button = Button(
 welcome_button.pack()
 
 root.mainloop()
+
+
